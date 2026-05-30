@@ -1,6 +1,6 @@
 <template>
   <div class="map-container">
-    <h2>New Jersey – Congressional District 7</h2>
+    <h2>NJ-07 Congressional District</h2>
     <div v-if="loading" class="loading">Loading map…</div>
     <div v-if="error" class="error">{{ error }}</div>
 
