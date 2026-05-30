@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>NJ-07 Demographics</h1>
+    <h1>NJ-07 Voting Demographics</h1>
     <NJMap />
   </div>
 </template>
