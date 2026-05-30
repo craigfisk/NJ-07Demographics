@@ -287,11 +287,12 @@ def main() -> None:
         pair = VOTER_REG.get((raw_county, raw_name))
         if pair is None:
             unmatched.append(f'("{raw_county}", "{raw_name}")')
-            pct_dem = pct_unaff = None
+            pct_dem = pct_unaff = pct_rep = None
         else:
             dem, unaff, total = pair
             pct_dem   = round(dem   / total * 100, 1) if total > 0 else None
             pct_unaff = round(unaff / total * 100, 1) if total > 0 else None
+            pct_rep   = round((total - dem - unaff) / total * 100, 1) if total > 0 else None
 
         output_features.append({
             "type": "Feature",
@@ -301,6 +302,7 @@ def main() -> None:
                 "county":          props.get(county_key, ""),
                 "pct_dem":         pct_dem,
                 "pct_unaffiliated": pct_unaff,
+                "pct_rep":         pct_rep,
             },
         })
 
