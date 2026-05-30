@@ -19,16 +19,20 @@
       <label :class="{ active: layer === 'unaffiliated' }" @click="setLayer('unaffiliated')">
         <span class="swatch unaffiliated-swatch"></span> Unaffiliated voters (% of voters)
       </label>
+      <label :class="{ active: layer === 'republican' }" @click="setLayer('republican')">
+        <span class="swatch republican-swatch"></span> Registered Republicans (% of voters)
+      </label>
     </div>
 
     <div id="nj-map" ref="mapEl"></div>
 
     <div v-if="layer !== 'district'" class="legend">
       <div class="legend-title">
-        {{ layer === 'hispanic' ? '% Hispanic/Latino'
-         : layer === 'young'    ? '% age 18–34'
-         : layer === 'democrat' ? '% Registered Democrat'
-         :                        '% Unaffiliated' }}
+        {{ layer === 'hispanic'    ? '% Hispanic/Latino'
+         : layer === 'young'       ? '% age 18–34'
+         : layer === 'democrat'    ? '% Registered Democrat'
+         : layer === 'republican'  ? '% Registered Republican'
+         :                           '% Unaffiliated' }}
       </div>
       <div class="legend-scale">
         <span v-for="item in activeLegend" :key="item.label" class="legend-item">
@@ -50,7 +54,7 @@ import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 
-type LayerName = 'district' | 'hispanic' | 'young' | 'democrat' | 'unaffiliated'
+type LayerName = 'district' | 'hispanic' | 'young' | 'democrat' | 'unaffiliated' | 'republican'
 
 const mapEl = ref<HTMLElement | null>(null)
 const loading = ref(true)
@@ -63,6 +67,7 @@ let hispanicLayer: L.GeoJSON | null = null
 let youngLayer: L.GeoJSON | null = null
 let democratLayer: L.GeoJSON | null = null
 let unaffiliatedLayer: L.GeoJSON | null = null
+let republicanLayer: L.GeoJSON | null = null
 let demoData: any = null
 let voterData: any = null
 
@@ -79,6 +84,9 @@ const demColors = ['#edf8e9', '#bae4b3', '#74c476', '#31a354', '#006d2c']
 const unaffBreaks = [0, 20, 25, 30, 35, 100]
 const unaffColors = ['#feedde', '#fdbe85', '#fd8d3c', '#e6550d', '#a63603']
 
+const repBreaks = [0, 15, 25, 35, 45, 100]
+const repColors = ['#fee5d9', '#fcbba1', '#fc9272', '#fb6a4a', '#cb181d']
+
 function colorFor(value: number, breaks: number[], colors: string[]): string {
   for (let i = 0; i < breaks.length - 1; i++) {
     if (value < breaks[i + 1]) return colors[i]
@@ -91,6 +99,7 @@ const activeLegend = computed(() => {
     layer.value === 'hispanic'     ? [hispanicBreaks, hispanicColors]
     : layer.value === 'young'      ? [youngBreaks,    youngColors]
     : layer.value === 'democrat'   ? [demBreaks,      demColors]
+    : layer.value === 'republican' ? [repBreaks,      repColors]
     :                                [unaffBreaks,    unaffColors]
   return colors.map((c, i) => ({
     color: c,
@@ -182,6 +191,27 @@ function buildDemoLayers() {
       )
     },
   })
+
+  republicanLayer = L.geoJSON(voterData, {
+    style: (f) => ({
+      fillColor: f?.properties.pct_rep != null
+        ? colorFor(f.properties.pct_rep, repBreaks, repColors)
+        : '#ccc',
+      fillOpacity: 0.75,
+      color: '#666',
+      weight: 0.5,
+    }),
+    onEachFeature: (f, l) => {
+      const p = f.properties
+      l.bindTooltip(
+        `<strong>${p.municipality}</strong><br>` +
+        (p.pct_rep != null
+          ? `Registered Republican: <b>${p.pct_rep}%</b>`
+          : 'No data'),
+        { sticky: true }
+      )
+    },
+  })
   }
 }
 
@@ -192,6 +222,7 @@ function setLayer(name: LayerName) {
   youngLayer?.remove()
   democratLayer?.remove()
   unaffiliatedLayer?.remove()
+  republicanLayer?.remove()
   districtLayer?.remove()
 
   if (name === 'district') {
@@ -207,6 +238,9 @@ function setLayer(name: LayerName) {
     districtLayer?.addTo(map)
   } else if (name === 'unaffiliated') {
     unaffiliatedLayer?.addTo(map)
+    districtLayer?.addTo(map)
+  } else if (name === 'republican') {
+    republicanLayer?.addTo(map)
     districtLayer?.addTo(map)
   }
 }
@@ -306,6 +340,7 @@ onUnmounted(() => {
 .young-swatch     { background: #2171b5; }
 .democrat-swatch      { background: #31a354; }
 .unaffiliated-swatch  { background: #fd8d3c; }
+.republican-swatch    { background: #fb6a4a; }
 
 #nj-map {
   width: 700px;
