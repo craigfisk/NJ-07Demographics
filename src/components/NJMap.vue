@@ -165,17 +165,6 @@ onMounted(async () => {
     districtLayer!.addTo(map)
     map.fitBounds(districtLayer!.getBounds(), { padding: [30, 30] })
 
-    // Town markers
-    const towns: [number, number, string][] = [
-      [40.7054, -74.5557, 'Basking Ridge'],
-      [40.8529, -74.8280, 'Hackettstown'],
-    ]
-    const icon = L.divIcon({ className: '', html: '<div class="town-dot"></div>', iconSize: [10, 10], iconAnchor: [5, 5] })
-    for (const [lat, lng, name] of towns) {
-      L.marker([lat, lng], { icon })
-        .bindTooltip(name, { permanent: true, direction: 'right', offset: [8, 0], className: 'town-label' })
-        .addTo(map!)
-    }
   } catch (e: any) {
     error.value = `Failed to load map data: ${e.message}`
   } finally {
@@ -277,27 +266,3 @@ h2 { margin-bottom: 0.5rem; }
 .legend-note { color: #888; margin-top: 4px; font-size: 11px; }
 </style>
 
-<style>
-.town-dot {
-  width: 10px;
-  height: 10px;
-  background: #2c3e50;
-  border: 2px solid #fff;
-  border-radius: 50%;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.4);
-}
-
-.town-label {
-  background: rgba(255,255,255,0.9);
-  border: 1px solid #aaa;
-  border-radius: 3px;
-  padding: 2px 5px;
-  font-size: 12px;
-  font-weight: 600;
-  color: #2c3e50;
-  white-space: nowrap;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-}
-
-.town-label::before { display: none; }
-</style>
