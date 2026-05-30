@@ -1,7 +1,6 @@
 <template>
   <div class="map-container">
-    <h2>NJ-07 Congressional District</h2>
-    <div v-if="loading" class="loading">Loading map…</div>
+<div v-if="loading" class="loading">Loading map…</div>
     <div v-if="error" class="error">{{ error }}</div>
 
     <div class="controls">
@@ -231,8 +230,6 @@ onUnmounted(() => {
   align-items: center;
   font-family: sans-serif;
 }
-
-h2 { margin-bottom: 0.5rem; }
 
 .controls {
   display: flex;
