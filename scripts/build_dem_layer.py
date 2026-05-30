@@ -13,7 +13,7 @@ Updating voter registration data:
     1. Go to https://www.nj.gov/state/elections/election-information-svrs.shtml
     2. Download the most recent SVRS report (PDF).
     3. Find the per-municipality counts for each county that overlaps NJ-07.
-    4. Update VOTER_REG below with (dem_registered, total_registered) pairs.
+    4. Update VOTER_REG below with (dem_registered, unaffiliated_registered, total_registered) triples.
     5. Re-run this script to regenerate public/nj07-voters.geojson.
 """
 
@@ -42,116 +42,117 @@ MUNIS_URL = (
 # Run the script once with an empty dict to see what keys are printed for
 # unmatched municipalities, then fill them in here.
 # ---------------------------------------------------------------------------
-VOTER_REG: dict[tuple[str, str], tuple[int, int]] = {
+VOTER_REG: dict[tuple[str, str], tuple[int, int, int]] = {
     # -----------------------------------------------------------------------
     # PLACEHOLDER values — replace with real data from the NJ SVRS report.
     # Keys match the NJGIN MUN_LABEL / COUNTY property values exactly.
+    # Values: (dem_registered, unaffiliated_registered, total_registered)
     # -----------------------------------------------------------------------
 
-    # Hunterdon County (~40 % Dem average)
-    ("HUNTERDON", "ALEXANDRIA TOWNSHIP"):   ( 1050,  3000),
-    ("HUNTERDON", "BETHLEHEM TOWNSHIP"):    (  825,  2500),
-    ("HUNTERDON", "BLOOMSBURY BOROUGH"):    (  320,   800),
-    ("HUNTERDON", "CALIFON BOROUGH"):       (  294,   700),
-    ("HUNTERDON", "CLINTON TOWN"):          ( 1350,  3000),
-    ("HUNTERDON", "CLINTON TOWNSHIP"):      ( 3800,  9500),
-    ("HUNTERDON", "DELAWARE TOWNSHIP"):     ( 1330,  3500),
-    ("HUNTERDON", "EAST AMWELL TOWNSHIP"):  ( 1200,  3000),
-    ("HUNTERDON", "FLEMINGTON BOROUGH"):    ( 1664,  3200),
-    ("HUNTERDON", "FRANKLIN TOWNSHIP"):     ( 1330,  3500),
-    ("HUNTERDON", "FRENCHTOWN BOROUGH"):    (  660,  1200),
-    ("HUNTERDON", "GLEN GARDNER BOROUGH"):  (  266,   700),
-    ("HUNTERDON", "HAMPTON BOROUGH"):       (  360,   900),
-    ("HUNTERDON", "HIGH BRIDGE BOROUGH"):   ( 1260,  2800),
-    ("HUNTERDON", "HOLLAND TOWNSHIP"):      ( 1120,  3200),
-    ("HUNTERDON", "KINGWOOD TOWNSHIP"):     (  925,  2500),
-    ("HUNTERDON", "LAMBERTVILLE CITY"):     ( 1625,  2500),
-    ("HUNTERDON", "LEBANON BOROUGH"):       (  600,  1500),
-    ("HUNTERDON", "LEBANON TOWNSHIP"):      ( 1665,  4500),
-    ("HUNTERDON", "MILFORD BOROUGH"):       (  384,   800),
-    ("HUNTERDON", "RARITAN TOWNSHIP"):      ( 7200, 18000),
-    ("HUNTERDON", "READINGTON TOWNSHIP"):   ( 4620, 11000),
-    ("HUNTERDON", "STOCKTON BOROUGH"):      (  220,   400),
-    ("HUNTERDON", "TEWKSBURY TOWNSHIP"):    ( 2204,  5800),
-    ("HUNTERDON", "UNION TOWNSHIP"):        ( 1110,  3000),
-    ("HUNTERDON", "WEST AMWELL TOWNSHIP"):  ( 1200,  3000),
+    # Hunterdon County (~40% Dem, ~30% unaffiliated)
+    ("HUNTERDON", "ALEXANDRIA TOWNSHIP"):      ( 1050,  900,  3000),
+    ("HUNTERDON", "BETHLEHEM TOWNSHIP"):       (  825,  750,  2500),
+    ("HUNTERDON", "BLOOMSBURY BOROUGH"):       (  320,  240,   800),
+    ("HUNTERDON", "CALIFON BOROUGH"):          (  294,  210,   700),
+    ("HUNTERDON", "CLINTON TOWN"):             ( 1350,  900,  3000),
+    ("HUNTERDON", "CLINTON TOWNSHIP"):         ( 3800, 2850,  9500),
+    ("HUNTERDON", "DELAWARE TOWNSHIP"):        ( 1330, 1050,  3500),
+    ("HUNTERDON", "EAST AMWELL TOWNSHIP"):     ( 1200,  900,  3000),
+    ("HUNTERDON", "FLEMINGTON BOROUGH"):       ( 1664,  960,  3200),
+    ("HUNTERDON", "FRANKLIN TOWNSHIP"):        ( 1330, 1050,  3500),
+    ("HUNTERDON", "FRENCHTOWN BOROUGH"):       (  660,  360,  1200),
+    ("HUNTERDON", "GLEN GARDNER BOROUGH"):     (  266,  210,   700),
+    ("HUNTERDON", "HAMPTON BOROUGH"):          (  360,  270,   900),
+    ("HUNTERDON", "HIGH BRIDGE BOROUGH"):      ( 1260,  840,  2800),
+    ("HUNTERDON", "HOLLAND TOWNSHIP"):         ( 1120,  960,  3200),
+    ("HUNTERDON", "KINGWOOD TOWNSHIP"):        (  925,  750,  2500),
+    ("HUNTERDON", "LAMBERTVILLE CITY"):        ( 1625,  750,  2500),
+    ("HUNTERDON", "LEBANON BOROUGH"):          (  600,  450,  1500),
+    ("HUNTERDON", "LEBANON TOWNSHIP"):         ( 1665, 1350,  4500),
+    ("HUNTERDON", "MILFORD BOROUGH"):          (  384,  240,   800),
+    ("HUNTERDON", "RARITAN TOWNSHIP"):         ( 7200, 5400, 18000),
+    ("HUNTERDON", "READINGTON TOWNSHIP"):      ( 4620, 3300, 11000),
+    ("HUNTERDON", "STOCKTON BOROUGH"):         (  220,  120,   400),
+    ("HUNTERDON", "TEWKSBURY TOWNSHIP"):       ( 2204, 1740,  5800),
+    ("HUNTERDON", "UNION TOWNSHIP"):           ( 1110,  900,  3000),
+    ("HUNTERDON", "WEST AMWELL TOWNSHIP"):     ( 1200,  900,  3000),
 
-    # Morris County (~44 % Dem average)
-    ("MORRIS", "CHESTER BOROUGH"):          (  924,  2200),
-    ("MORRIS", "CHESTER TOWNSHIP"):         ( 2800,  7000),
-    ("MORRIS", "LONG HILL TOWNSHIP"):       ( 2700,  6000),
-    ("MORRIS", "MENDHAM BOROUGH"):          ( 1596,  4200),
-    ("MORRIS", "MENDHAM TOWNSHIP"):         ( 2072,  5600),
-    ("MORRIS", "MINE HILL TOWNSHIP"):       ( 1125,  2500),
-    ("MORRIS", "MOUNT ARLINGTON BOROUGH"):  ( 1440,  3000),
-    ("MORRIS", "MOUNT OLIVE TOWNSHIP"):     ( 5750, 12500),
-    ("MORRIS", "NETCONG BOROUGH"):          (  765,  1700),
-    ("MORRIS", "ROXBURY TOWNSHIP"):         ( 5940, 13500),
-    ("MORRIS", "WASHINGTON TOWNSHIP"):      ( 5060, 11500),
-    ("MORRIS", "WHARTON BOROUGH"):          ( 1598,  3400),
+    # Morris County (~44% Dem, ~27% unaffiliated)
+    ("MORRIS", "CHESTER BOROUGH"):             (  924,  594,  2200),
+    ("MORRIS", "CHESTER TOWNSHIP"):            ( 2800, 1890,  7000),
+    ("MORRIS", "LONG HILL TOWNSHIP"):          ( 2700, 1620,  6000),
+    ("MORRIS", "MENDHAM BOROUGH"):             ( 1596, 1134,  4200),
+    ("MORRIS", "MENDHAM TOWNSHIP"):            ( 2072, 1512,  5600),
+    ("MORRIS", "MINE HILL TOWNSHIP"):          ( 1125,  675,  2500),
+    ("MORRIS", "MOUNT ARLINGTON BOROUGH"):     ( 1440,  810,  3000),
+    ("MORRIS", "MOUNT OLIVE TOWNSHIP"):        ( 5750, 3375, 12500),
+    ("MORRIS", "NETCONG BOROUGH"):             (  765,  459,  1700),
+    ("MORRIS", "ROXBURY TOWNSHIP"):            ( 5940, 3645, 13500),
+    ("MORRIS", "WASHINGTON TOWNSHIP"):         ( 5060, 3105, 11500),
+    ("MORRIS", "WHARTON BOROUGH"):             ( 1598,  918,  3400),
 
-    # Somerset County (~47 % Dem average)
-    ("SOMERSET", "BEDMINSTER TOWNSHIP"):    ( 1596,  4200),
-    ("SOMERSET", "BERNARDS TOWNSHIP"):      ( 7200, 16000),
-    ("SOMERSET", "BERNARDSVILLE BOROUGH"):  ( 2420,  5500),
-    ("SOMERSET", "BRANCHBURG TOWNSHIP"):    ( 4230,  9000),
-    ("SOMERSET", "BRIDGEWATER TOWNSHIP"):   (13800, 30000),
-    ("SOMERSET", "FAR HILLS BOROUGH"):      (  385,  1100),
-    ("SOMERSET", "GREEN BROOK TOWNSHIP"):   ( 2250,  4500),
-    ("SOMERSET", "PEAPACK-GLADSTONE BOROUGH"): ( 880, 2200),
-    ("SOMERSET", "RARITAN BOROUGH"):        ( 2300,  4600),
-    ("SOMERSET", "SOMERVILLE BOROUGH"):     ( 3080,  5500),
-    ("SOMERSET", "WARREN TOWNSHIP"):        ( 4320,  9000),
-    ("SOMERSET", "WATCHUNG BOROUGH"):       ( 1600,  3200),
+    # Somerset County (~47% Dem, ~28% unaffiliated)
+    ("SOMERSET", "BEDMINSTER TOWNSHIP"):       ( 1596, 1176,  4200),
+    ("SOMERSET", "BERNARDS TOWNSHIP"):         ( 7200, 4480, 16000),
+    ("SOMERSET", "BERNARDSVILLE BOROUGH"):     ( 2420, 1540,  5500),
+    ("SOMERSET", "BRANCHBURG TOWNSHIP"):       ( 4230, 2520,  9000),
+    ("SOMERSET", "BRIDGEWATER TOWNSHIP"):      (13800, 8400, 30000),
+    ("SOMERSET", "FAR HILLS BOROUGH"):         (  385,  308,  1100),
+    ("SOMERSET", "GREEN BROOK TOWNSHIP"):      ( 2250, 1260,  4500),
+    ("SOMERSET", "PEAPACK-GLADSTONE BOROUGH"): (  880,  616,  2200),
+    ("SOMERSET", "RARITAN BOROUGH"):           ( 2300, 1288,  4600),
+    ("SOMERSET", "SOMERVILLE BOROUGH"):        ( 3080, 1540,  5500),
+    ("SOMERSET", "WARREN TOWNSHIP"):           ( 4320, 2520,  9000),
+    ("SOMERSET", "WATCHUNG BOROUGH"):          ( 1600,  896,  3200),
 
-    # Sussex County (~38 % Dem average)
-    ("SUSSEX", "ANDOVER BOROUGH"):          (  228,   600),
-    ("SUSSEX", "BYRAM TOWNSHIP"):           ( 2600,  6500),
-    ("SUSSEX", "FREDON TOWNSHIP"):          (  630,  1800),
-    ("SUSSEX", "GREEN TOWNSHIP"):           (  700,  2000),
-    ("SUSSEX", "HOPATCONG BOROUGH"):        ( 3360,  8000),
-    ("SUSSEX", "OGDENSBURG BOROUGH"):       (  720,  1800),
-    ("SUSSEX", "SPARTA TOWNSHIP"):          ( 5320, 14000),
-    ("SUSSEX", "STANHOPE BOROUGH"):         (  860,  2000),
-    ("SUSSEX", "STILLWATER TOWNSHIP"):      (  875,  2500),
-    ("SUSSEX", "WALPACK TOWNSHIP"):         (   40,   100),
+    # Sussex County (~38% Dem, ~32% unaffiliated)
+    ("SUSSEX", "ANDOVER BOROUGH"):             (  228,  192,   600),
+    ("SUSSEX", "BYRAM TOWNSHIP"):              ( 2600, 2080,  6500),
+    ("SUSSEX", "FREDON TOWNSHIP"):             (  630,  576,  1800),
+    ("SUSSEX", "GREEN TOWNSHIP"):              (  700,  640,  2000),
+    ("SUSSEX", "HOPATCONG BOROUGH"):           ( 3360, 2560,  8000),
+    ("SUSSEX", "OGDENSBURG BOROUGH"):          (  720,  576,  1800),
+    ("SUSSEX", "SPARTA TOWNSHIP"):             ( 5320, 4480, 14000),
+    ("SUSSEX", "STANHOPE BOROUGH"):            (  860,  640,  2000),
+    ("SUSSEX", "STILLWATER TOWNSHIP"):         (  875,  800,  2500),
+    ("SUSSEX", "WALPACK TOWNSHIP"):            (   40,   32,   100),
 
-    # Union County (~57 % Dem average)
-    ("UNION", "BERKELEY HEIGHTS TOWNSHIP"): ( 4784,  9200),
-    ("UNION", "CLARK TOWNSHIP"):            ( 4680,  9000),
-    ("UNION", "FANWOOD BOROUGH"):           ( 2580,  4300),
-    ("UNION", "LINDEN CITY"):               (12240, 18000),
-    ("UNION", "MOUNTAINSIDE BOROUGH"):      ( 1170,  2600),
-    ("UNION", "NEW PROVIDENCE BOROUGH"):    ( 3672,  6800),
-    ("UNION", "RAHWAY CITY"):               ( 8450, 13000),
-    ("UNION", "SCOTCH PLAINS TOWNSHIP"):    ( 7125, 12500),
-    ("UNION", "SPRINGFIELD TOWNSHIP"):      ( 4860,  9000),
-    ("UNION", "SUMMIT CITY"):               ( 8550, 15000),
-    ("UNION", "WESTFIELD TOWN"):            ( 7695, 13500),
-    ("UNION", "WINFIELD TOWNSHIP"):         (  220,   400),
+    # Union County (~57% Dem, ~22% unaffiliated)
+    ("UNION", "BERKELEY HEIGHTS TOWNSHIP"):    ( 4784, 2024,  9200),
+    ("UNION", "CLARK TOWNSHIP"):               ( 4680, 1980,  9000),
+    ("UNION", "FANWOOD BOROUGH"):              ( 2580,  946,  4300),
+    ("UNION", "LINDEN CITY"):                  (12240, 3960, 18000),
+    ("UNION", "MOUNTAINSIDE BOROUGH"):         ( 1170,  572,  2600),
+    ("UNION", "NEW PROVIDENCE BOROUGH"):       ( 3672, 1496,  6800),
+    ("UNION", "RAHWAY CITY"):                  ( 8450, 2860, 13000),
+    ("UNION", "SCOTCH PLAINS TOWNSHIP"):       ( 7125, 2750, 12500),
+    ("UNION", "SPRINGFIELD TOWNSHIP"):         ( 4860, 1980,  9000),
+    ("UNION", "SUMMIT CITY"):                  ( 8550, 3300, 15000),
+    ("UNION", "WESTFIELD TOWN"):               ( 7695, 2970, 13500),
+    ("UNION", "WINFIELD TOWNSHIP"):            (  220,   88,   400),
 
-    # Warren County (~38 % Dem average)
-    ("WARREN", "ALLAMUCHY TOWNSHIP"):       ( 1225,  3500),
-    ("WARREN", "ALPHA BOROUGH"):            (  720,  1800),
-    ("WARREN", "BELVIDERE TOWN"):           (  756,  1800),
-    ("WARREN", "BLAIRSTOWN TOWNSHIP"):      ( 1295,  3500),
-    ("WARREN", "FRANKLIN TOWNSHIP"):        (  980,  2800),
-    ("WARREN", "FRELINGHUYSEN TOWNSHIP"):   (  396,  1200),
-    ("WARREN", "GREENWICH TOWNSHIP"):       ( 1216,  3200),
-    ("WARREN", "HACKETTSTOWN TOWN"):        ( 2000,  5000),
-    ("WARREN", "HARDWICK TOWNSHIP"):        (  396,  1200),
-    ("WARREN", "HARMONY TOWNSHIP"):         (  770,  2200),
-    ("WARREN", "HOPE TOWNSHIP"):            (  525,  1500),
-    ("WARREN", "INDEPENDENCE TOWNSHIP"):    ( 1295,  3500),
-    ("WARREN", "LIBERTY TOWNSHIP"):         (  770,  2200),
-    ("WARREN", "LOPATCONG TOWNSHIP"):       ( 2100,  5000),
-    ("WARREN", "MANSFIELD TOWNSHIP"):       ( 1900,  5000),
-    ("WARREN", "OXFORD TOWNSHIP"):          (  950,  2500),
-    ("WARREN", "PHILLIPSBURG TOWN"):        ( 2340,  5200),
-    ("WARREN", "POHATCONG TOWNSHIP"):       (  950,  2500),
-    ("WARREN", "WASHINGTON BOROUGH"):       ( 1470,  3500),
-    ("WARREN", "WASHINGTON TOWNSHIP"):      ( 2775,  7500),
-    ("WARREN", "WHITE TOWNSHIP"):           ( 1050,  3000),
+    # Warren County (~38% Dem, ~30% unaffiliated)
+    ("WARREN", "ALLAMUCHY TOWNSHIP"):          ( 1225, 1050,  3500),
+    ("WARREN", "ALPHA BOROUGH"):               (  720,  540,  1800),
+    ("WARREN", "BELVIDERE TOWN"):              (  756,  540,  1800),
+    ("WARREN", "BLAIRSTOWN TOWNSHIP"):         ( 1295, 1050,  3500),
+    ("WARREN", "FRANKLIN TOWNSHIP"):           (  980,  840,  2800),
+    ("WARREN", "FRELINGHUYSEN TOWNSHIP"):      (  396,  360,  1200),
+    ("WARREN", "GREENWICH TOWNSHIP"):          ( 1216,  960,  3200),
+    ("WARREN", "HACKETTSTOWN TOWN"):           ( 2000, 1500,  5000),
+    ("WARREN", "HARDWICK TOWNSHIP"):           (  396,  360,  1200),
+    ("WARREN", "HARMONY TOWNSHIP"):            (  770,  660,  2200),
+    ("WARREN", "HOPE TOWNSHIP"):               (  525,  450,  1500),
+    ("WARREN", "INDEPENDENCE TOWNSHIP"):       ( 1295, 1050,  3500),
+    ("WARREN", "LIBERTY TOWNSHIP"):            (  770,  660,  2200),
+    ("WARREN", "LOPATCONG TOWNSHIP"):          ( 2100, 1500,  5000),
+    ("WARREN", "MANSFIELD TOWNSHIP"):          ( 1900, 1500,  5000),
+    ("WARREN", "OXFORD TOWNSHIP"):             (  950,  750,  2500),
+    ("WARREN", "PHILLIPSBURG TOWN"):           ( 2340, 1560,  5200),
+    ("WARREN", "POHATCONG TOWNSHIP"):          (  950,  750,  2500),
+    ("WARREN", "WASHINGTON BOROUGH"):          ( 1470, 1050,  3500),
+    ("WARREN", "WASHINGTON TOWNSHIP"):         ( 2775, 2250,  7500),
+    ("WARREN", "WHITE TOWNSHIP"):              ( 1050,  900,  3000),
 }
 
 
@@ -284,17 +285,22 @@ def main() -> None:
         raw_county = str(props.get(county_key, "")).strip().upper()
 
         pair = VOTER_REG.get((raw_county, raw_name))
-        pct_dem = round(pair[0] / pair[1] * 100, 1) if pair and pair[1] > 0 else None
         if pair is None:
             unmatched.append(f'("{raw_county}", "{raw_name}")')
+            pct_dem = pct_unaff = None
+        else:
+            dem, unaff, total = pair
+            pct_dem   = round(dem   / total * 100, 1) if total > 0 else None
+            pct_unaff = round(unaff / total * 100, 1) if total > 0 else None
 
         output_features.append({
             "type": "Feature",
             "geometry": geom,
             "properties": {
-                "municipality": props.get(name_key, ""),
-                "county": props.get(county_key, ""),
-                "pct_dem": pct_dem,
+                "municipality":    props.get(name_key, ""),
+                "county":          props.get(county_key, ""),
+                "pct_dem":         pct_dem,
+                "pct_unaffiliated": pct_unaff,
             },
         })
 
@@ -306,9 +312,9 @@ def main() -> None:
     print(f"Matched to VOTER_REG:    {matched}/{len(output_features)}")
 
     if unmatched:
-        print("\nUnmatched — add these keys to VOTER_REG (with actual dem/total counts):")
+        print("\nUnmatched — add these keys to VOTER_REG (with actual dem/unaff/total counts):")
         for key in sorted(set(unmatched)):
-            print(f"  {key}: (dem_count, total_count),")
+            print(f"  {key}: (dem_count, unaff_count, total_count),")
 
     print(f"\nOutput written to {OUTPUT_PATH}")
 

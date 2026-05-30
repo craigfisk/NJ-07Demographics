@@ -16,13 +16,19 @@
       <label :class="{ active: layer === 'democrat' }" @click="setLayer('democrat')">
         <span class="swatch democrat-swatch"></span> Registered Democrats (% of voters)
       </label>
+      <label :class="{ active: layer === 'unaffiliated' }" @click="setLayer('unaffiliated')">
+        <span class="swatch unaffiliated-swatch"></span> Unaffiliated voters (% of voters)
+      </label>
     </div>
 
     <div id="nj-map" ref="mapEl"></div>
 
     <div v-if="layer !== 'district'" class="legend">
       <div class="legend-title">
-        {{ layer === 'hispanic' ? '% Hispanic/Latino' : layer === 'young' ? '% age 18–34' : '% Registered Democrat' }}
+        {{ layer === 'hispanic' ? '% Hispanic/Latino'
+         : layer === 'young'    ? '% age 18–34'
+         : layer === 'democrat' ? '% Registered Democrat'
+         :                        '% Unaffiliated' }}
       </div>
       <div class="legend-scale">
         <span v-for="item in activeLegend" :key="item.label" class="legend-item">
@@ -44,7 +50,7 @@ import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 
-type LayerName = 'district' | 'hispanic' | 'young' | 'democrat'
+type LayerName = 'district' | 'hispanic' | 'young' | 'democrat' | 'unaffiliated'
 
 const mapEl = ref<HTMLElement | null>(null)
 const loading = ref(true)
@@ -56,6 +62,7 @@ let districtLayer: L.GeoJSON | null = null
 let hispanicLayer: L.GeoJSON | null = null
 let youngLayer: L.GeoJSON | null = null
 let democratLayer: L.GeoJSON | null = null
+let unaffiliatedLayer: L.GeoJSON | null = null
 let demoData: any = null
 let voterData: any = null
 
@@ -69,6 +76,9 @@ const youngColors  = ['#f7fbff', '#9ecae1', '#4292c6', '#2171b5', '#084594']
 const demBreaks = [0, 35, 45, 50, 55, 100]
 const demColors = ['#edf8e9', '#bae4b3', '#74c476', '#31a354', '#006d2c']
 
+const unaffBreaks = [0, 20, 25, 30, 35, 100]
+const unaffColors = ['#feedde', '#fdbe85', '#fd8d3c', '#e6550d', '#a63603']
+
 function colorFor(value: number, breaks: number[], colors: string[]): string {
   for (let i = 0; i < breaks.length - 1; i++) {
     if (value < breaks[i + 1]) return colors[i]
@@ -78,9 +88,10 @@ function colorFor(value: number, breaks: number[], colors: string[]): string {
 
 const activeLegend = computed(() => {
   const [breaks, colors] =
-    layer.value === 'hispanic' ? [hispanicBreaks, hispanicColors]
-    : layer.value === 'young'  ? [youngBreaks,    youngColors]
-    :                            [demBreaks,       demColors]
+    layer.value === 'hispanic'     ? [hispanicBreaks, hispanicColors]
+    : layer.value === 'young'      ? [youngBreaks,    youngColors]
+    : layer.value === 'democrat'   ? [demBreaks,      demColors]
+    :                                [unaffBreaks,    unaffColors]
   return colors.map((c, i) => ({
     color: c,
     label: `${breaks[i]}–${breaks[i + 1]}%`,
@@ -150,6 +161,27 @@ function buildDemoLayers() {
       )
     },
   })
+
+  unaffiliatedLayer = L.geoJSON(voterData, {
+    style: (f) => ({
+      fillColor: f?.properties.pct_unaffiliated != null
+        ? colorFor(f.properties.pct_unaffiliated, unaffBreaks, unaffColors)
+        : '#ccc',
+      fillOpacity: 0.75,
+      color: '#666',
+      weight: 0.5,
+    }),
+    onEachFeature: (f, l) => {
+      const p = f.properties
+      l.bindTooltip(
+        `<strong>${p.municipality}</strong><br>` +
+        (p.pct_unaffiliated != null
+          ? `Unaffiliated: <b>${p.pct_unaffiliated}%</b>`
+          : 'No data'),
+        { sticky: true }
+      )
+    },
+  })
   }
 }
 
@@ -159,6 +191,7 @@ function setLayer(name: LayerName) {
   hispanicLayer?.remove()
   youngLayer?.remove()
   democratLayer?.remove()
+  unaffiliatedLayer?.remove()
   districtLayer?.remove()
 
   if (name === 'district') {
@@ -171,6 +204,9 @@ function setLayer(name: LayerName) {
     districtLayer?.addTo(map)
   } else if (name === 'democrat') {
     democratLayer?.addTo(map)
+    districtLayer?.addTo(map)
+  } else if (name === 'unaffiliated') {
+    unaffiliatedLayer?.addTo(map)
     districtLayer?.addTo(map)
   }
 }
@@ -268,7 +304,8 @@ onUnmounted(() => {
 .district-swatch  { background: #c0392b; }
 .hispanic-swatch  { background: #fb5b34; }
 .young-swatch     { background: #2171b5; }
-.democrat-swatch  { background: #31a354; }
+.democrat-swatch      { background: #31a354; }
+.unaffiliated-swatch  { background: #fd8d3c; }
 
 #nj-map {
   width: 700px;
