@@ -1,6 +1,6 @@
 <template>
   <div class="map-container">
-    <div class="courtesy">Courtesy of <a href="http://varelaforcongress.com" target="_blank" rel="noopener">varelaforcongress.com</a></div>
+    <div class="courtesy">Courtesy of <a href="https://rebeccabennettforcongress.com/" target="_blank" rel="noopener">https://rebeccabennettforcongress.com/</a></div>
 <div v-if="loading" class="loading">Loading map…</div>
     <div v-if="error" class="error">{{ error }}</div>
 
@@ -9,23 +9,26 @@
         <span class="swatch district-swatch"></span> District outline
       </label>
       <label :class="{ active: layer === 'hispanic' }" @click="setLayer('hispanic')">
-        <span class="swatch hispanic-swatch"></span> Spanish-speaking (% Hispanic/Latino)
+        <span class="swatch hispanic-swatch"></span> Spanish-speaking (%)
       </label>
       <label :class="{ active: layer === 'young' }" @click="setLayer('young')">
-        <span class="swatch young-swatch"></span> Young voters (% age 18–34)
+        <span class="swatch young-swatch"></span> Young voters (% 18-34)
       </label>
       <label :class="{ active: layer === 'democrat' }" @click="setLayer('democrat')">
-        <span class="swatch democrat-swatch"></span> Registered Democrats (% of voters)
+        <span class="swatch democrat-swatch"></span> Register Dems (%)
       </label>
       <label :class="{ active: layer === 'unaffiliated' }" @click="setLayer('unaffiliated')">
-        <span class="swatch unaffiliated-swatch"></span> Unaffiliated voters (% of voters)
+        <span class="swatch unaffiliated-swatch"></span> Unaffiliated (%)
       </label>
       <label :class="{ active: layer === 'republican' }" @click="setLayer('republican')">
-        <span class="swatch republican-swatch"></span> Registered Republicans (% of voters)
+        <span class="swatch republican-swatch"></span> Registered Repubs (%)
       </label>
     </div>
 
-    <div id="nj-map" ref="mapEl"></div>
+    <div class="map-wrapper">
+      <div id="nj-map" ref="mapEl"></div>
+      <button class="sources-map-btn" @click="showSources = true">Sources</button>
+    </div>
 
     <div v-if="layer !== 'district'" class="legend">
       <div class="legend-title">
@@ -47,6 +50,18 @@
          :                        'Source: NJ Division of Elections SVRS (placeholder data)' }}
       </div>
     </div>
+
+    <div v-if="showSources" class="modal-overlay" @click="showSources = false">
+      <div class="modal-content" @click.stop>
+        <h2>Data Sources</h2>
+        <ul>
+          <li><strong>% Hispanic/Latino:</strong> American Community Survey (ACS) 2024 5-year estimates (Census tracts within NJ-07).</li>
+          <li><strong>Young voters (% age 18–34):</strong> American Community Survey (ACS) 2024 5-year estimates (voting-age population).</li>
+          <li><strong>Registered Democrats, Republicans, and Unaffiliated Voters:</strong> NJ Division of Elections Statewide Voter Registration System (SVRS). <em>(Note: Currently utilizing placeholder data for demonstration purposes)</em>.</li>
+        </ul>
+        <button class="close-btn" @click="showSources = false">Close</button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -61,6 +76,7 @@ const mapEl = ref<HTMLElement | null>(null)
 const loading = ref(true)
 const error = ref('')
 const layer = ref<LayerName>('district')
+const showSources = ref(false)
 
 let map: L.Map | null = null
 let districtLayer: L.GeoJSON | null = null
@@ -306,7 +322,7 @@ onUnmounted(() => {
   align-self: flex-start;
   font-size: 11px;
   color: #888;
-  margin-bottom: 4px;
+  margin-bottom: 12px;
 }
 
 .courtesy a {
@@ -359,6 +375,78 @@ onUnmounted(() => {
   height: 550px;
   border: 1px solid #ccc;
   border-radius: 4px;
+}
+
+.map-wrapper {
+  position: relative;
+}
+
+.sources-map-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  padding: 6px 12px;
+  background: white;
+  border: 2px solid rgba(0,0,0,0.2);
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.65);
+}
+
+.sources-map-btn:hover {
+  background: #f4f4f4;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modal-content {
+  background: white;
+  padding: 24px;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.modal-content ul {
+  padding-left: 20px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.modal-content li {
+  margin-bottom: 12px;
+}
+
+.close-btn {
+  padding: 8px 16px;
+  cursor: pointer;
+  background: #eee;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.close-btn:hover {
+  background: #ddd;
 }
 
 .loading, .error { margin-bottom: 0.5rem; color: #555; }

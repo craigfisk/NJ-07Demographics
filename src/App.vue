@@ -13,4 +13,7 @@ import NJMap from './components/NJMap.vue'
 #app {
   padding: 1rem;
 }
+h1 {
+  margin-bottom: 12px;
+}
 </style>
