@@ -1,6 +1,6 @@
 <template>
   <div class="map-container">
-    <div class="courtesy">Courtesy of <a href="http://varelaforcongress.com" target="_blank" rel="noopener">varelaforcongress.com</a></div>
+    <div class="courtesy">Courtesy of <a href="https://rebeccabennettforcongress.com/" target="_blank" rel="noopener">https://rebeccabennettforcongress.com/</a></div>
 <div v-if="loading" class="loading">Loading map…</div>
     <div v-if="error" class="error">{{ error }}</div>
 
@@ -9,28 +9,43 @@
         <span class="swatch district-swatch"></span> District outline
       </label>
       <label :class="{ active: layer === 'hispanic' }" @click="setLayer('hispanic')">
-        <span class="swatch hispanic-swatch"></span> Spanish-speaking (% Hispanic/Latino)
+        <span class="swatch hispanic-swatch"></span> Spanish-speaking (%)
       </label>
       <label :class="{ active: layer === 'young' }" @click="setLayer('young')">
-        <span class="swatch young-swatch"></span> Young voters (% age 18–34)
+        <span class="swatch young-swatch"></span> Young voters (% 18-34)
+      </label>
+      <label :class="{ active: layer === 'middle_aged' }" @click="setLayer('middle_aged')">
+        <span class="swatch middle-aged-swatch"></span> Middle aged (% 35-49)
+      </label>
+      <label :class="{ active: layer === 'older' }" @click="setLayer('older')">
+        <span class="swatch older-swatch"></span> Older adults (% 50-64)
+      </label>
+      <label :class="{ active: layer === 'seniors' }" @click="setLayer('seniors')">
+        <span class="swatch seniors-swatch"></span> Seniors (% 65+)
       </label>
       <label :class="{ active: layer === 'democrat' }" @click="setLayer('democrat')">
-        <span class="swatch democrat-swatch"></span> Registered Democrats (% of voters)
+        <span class="swatch democrat-swatch"></span> Registered Dems (%)
       </label>
       <label :class="{ active: layer === 'unaffiliated' }" @click="setLayer('unaffiliated')">
-        <span class="swatch unaffiliated-swatch"></span> Unaffiliated voters (% of voters)
+        <span class="swatch unaffiliated-swatch"></span> Unaffiliated (%)
       </label>
       <label :class="{ active: layer === 'republican' }" @click="setLayer('republican')">
-        <span class="swatch republican-swatch"></span> Registered Republicans (% of voters)
+        <span class="swatch republican-swatch"></span> Registered Repubs (%)
       </label>
     </div>
 
-    <div id="nj-map" ref="mapEl"></div>
+    <div class="map-wrapper">
+      <div id="nj-map" ref="mapEl"></div>
+      <button class="sources-map-btn" @click="showSources = true">Sources</button>
+    </div>
 
     <div v-if="layer !== 'district'" class="legend">
       <div class="legend-title">
         {{ layer === 'hispanic'    ? '% Hispanic/Latino'
          : layer === 'young'       ? '% age 18–34'
+         : layer === 'middle_aged' ? '% age 35–49'
+         : layer === 'older'       ? '% age 50–64'
+         : layer === 'seniors'     ? '% age 65+'
          : layer === 'democrat'    ? '% Registered Democrat'
          : layer === 'republican'  ? '% Registered Republican'
          :                           '% Unaffiliated' }}
@@ -43,8 +58,23 @@
       </div>
       <div class="legend-note">
         {{ layer === 'hispanic' ? 'Source: ACS 2024 5-yr, Census tracts within NJ-07'
-         : layer === 'young'    ? 'Source: ACS 2024 5-yr, voting-age pop.'
+         : layer === 'young' || layer === 'middle_aged' || layer === 'older' || layer === 'seniors' ? 'Source: ACS 2024 5-yr, voting-age pop.'
          :                        'Source: NJ Division of Elections SVRS (placeholder data)' }}
+      </div>
+    </div>
+
+    <div v-if="showSources" class="modal-overlay" @click="showSources = false">
+      <div class="modal-content" @click.stop>
+        <h2>Data Sources</h2>
+        <ul>
+          <li><strong>% Hispanic/Latino:</strong> American Community Survey (ACS) 2024 5-year estimates (Census tracts within NJ-07).</li>
+          <li><strong>Young voters (% age 18–34):</strong> American Community Survey (ACS) 2024 5-year estimates (voting-age population).</li>
+          <li><strong>Middle aged (% age 35–49):</strong> American Community Survey (ACS) 2024 5-year estimates (voting-age population).</li>
+          <li><strong>Older adults (% age 50–64):</strong> American Community Survey (ACS) 2024 5-year estimates (voting-age population).</li>
+          <li><strong>Seniors (% age 65+):</strong> American Community Survey (ACS) 2024 5-year estimates (voting-age population).</li>
+          <li><strong>Registered Democrats, Republicans, and Unaffiliated Voters:</strong> NJ Division of Elections Statewide Voter Registration System (SVRS). <em>(Note: Currently utilizing placeholder data for demonstration purposes)</em>.</li>
+        </ul>
+        <button class="close-btn" @click="showSources = false">Close</button>
       </div>
     </div>
   </div>
@@ -55,17 +85,21 @@ import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 
-type LayerName = 'district' | 'hispanic' | 'young' | 'democrat' | 'unaffiliated' | 'republican'
+type LayerName = 'district' | 'hispanic' | 'young' | 'middle_aged' | 'older' | 'seniors' | 'democrat' | 'unaffiliated' | 'republican'
 
 const mapEl = ref<HTMLElement | null>(null)
 const loading = ref(true)
 const error = ref('')
 const layer = ref<LayerName>('district')
+const showSources = ref(false)
 
 let map: L.Map | null = null
 let districtLayer: L.GeoJSON | null = null
 let hispanicLayer: L.GeoJSON | null = null
 let youngLayer: L.GeoJSON | null = null
+let middleAgedLayer: L.GeoJSON | null = null
+let olderLayer: L.GeoJSON | null = null
+let seniorsLayer: L.GeoJSON | null = null
 let democratLayer: L.GeoJSON | null = null
 let unaffiliatedLayer: L.GeoJSON | null = null
 let republicanLayer: L.GeoJSON | null = null
@@ -78,6 +112,15 @@ const hispanicColors = ['#fff5f0', '#fca082', '#fb5b34', '#cb1a1c', '#67000d']
 
 const youngBreaks = [0, 10, 15, 20, 25, 100]
 const youngColors  = ['#f7fbff', '#9ecae1', '#4292c6', '#2171b5', '#084594']
+
+const middleAgedBreaks = [0, 15, 20, 25, 30, 100]
+const middleAgedColors = ['#f2f0f7', '#cbc9e2', '#9e9ac8', '#756bb1', '#54278f']
+
+const olderBreaks = [0, 15, 20, 25, 30, 100]
+const olderColors = ['#f1eef6', '#d7b5d8', '#df65b0', '#dd1c77', '#980043']
+
+const seniorsBreaks = [0, 10, 15, 20, 25, 100]
+const seniorsColors = ['#f6eff7', '#bdc9e1', '#67a9cf', '#1c9099', '#016c59']
 
 const demBreaks = [0, 35, 45, 50, 55, 100]
 const demColors = ['#edf8e9', '#bae4b3', '#74c476', '#31a354', '#006d2c']
@@ -99,6 +142,9 @@ const activeLegend = computed(() => {
   const [breaks, colors] =
     layer.value === 'hispanic'     ? [hispanicBreaks, hispanicColors]
     : layer.value === 'young'      ? [youngBreaks,    youngColors]
+    : layer.value === 'middle_aged'? [middleAgedBreaks, middleAgedColors]
+    : layer.value === 'older'      ? [olderBreaks,    olderColors]
+    : layer.value === 'seniors'    ? [seniorsBreaks,  seniorsColors]
     : layer.value === 'democrat'   ? [demBreaks,      demColors]
     : layer.value === 'republican' ? [repBreaks,      repColors]
     :                                [unaffBreaks,    unaffColors]
@@ -144,6 +190,69 @@ function buildDemoLayers() {
         `<strong>Tract ${p.TRACT}</strong><br>` +
         `Age 18–34: <b>${p.pct_young}%</b><br>` +
         `Pop: ${p.total_pop.toLocaleString()}`,
+        { sticky: true }
+      )
+    },
+  })
+
+  middleAgedLayer = L.geoJSON(demoData, {
+    style: (f) => ({
+      fillColor: f?.properties.pct_middle_aged != null 
+        ? colorFor(f.properties.pct_middle_aged, middleAgedBreaks, middleAgedColors)
+        : '#ccc',
+      fillOpacity: 0.75,
+      color: '#666',
+      weight: 0.5,
+    }),
+    onEachFeature: (f, l) => {
+      const p = f.properties
+      const val = p.pct_middle_aged != null ? `${p.pct_middle_aged}%` : 'No data'
+      l.bindTooltip(
+        `<strong>Tract ${p.TRACT}</strong><br>` +
+        `Age 35–49: <b>${val}</b><br>` +
+        `Pop: ${p.total_pop?.toLocaleString() ?? 'Unknown'}`,
+        { sticky: true }
+      )
+    },
+  })
+
+  olderLayer = L.geoJSON(demoData, {
+    style: (f) => ({
+      fillColor: f?.properties.pct_older != null 
+        ? colorFor(f.properties.pct_older, olderBreaks, olderColors)
+        : '#ccc',
+      fillOpacity: 0.75,
+      color: '#666',
+      weight: 0.5,
+    }),
+    onEachFeature: (f, l) => {
+      const p = f.properties
+      const val = p.pct_older != null ? `${p.pct_older}%` : 'No data'
+      l.bindTooltip(
+        `<strong>Tract ${p.TRACT}</strong><br>` +
+        `Age 50–64: <b>${val}</b><br>` +
+        `Pop: ${p.total_pop?.toLocaleString() ?? 'Unknown'}`,
+        { sticky: true }
+      )
+    },
+  })
+
+  seniorsLayer = L.geoJSON(demoData, {
+    style: (f) => ({
+      fillColor: f?.properties.pct_seniors != null 
+        ? colorFor(f.properties.pct_seniors, seniorsBreaks, seniorsColors)
+        : '#ccc',
+      fillOpacity: 0.75,
+      color: '#666',
+      weight: 0.5,
+    }),
+    onEachFeature: (f, l) => {
+      const p = f.properties
+      const val = p.pct_seniors != null ? `${p.pct_seniors}%` : 'No data'
+      l.bindTooltip(
+        `<strong>Tract ${p.TRACT}</strong><br>` +
+        `Age 65+: <b>${val}</b><br>` +
+        `Pop: ${p.total_pop?.toLocaleString() ?? 'Unknown'}`,
         { sticky: true }
       )
     },
@@ -221,6 +330,9 @@ function setLayer(name: LayerName) {
   layer.value = name
   hispanicLayer?.remove()
   youngLayer?.remove()
+  middleAgedLayer?.remove()
+  olderLayer?.remove()
+  seniorsLayer?.remove()
   democratLayer?.remove()
   unaffiliatedLayer?.remove()
   republicanLayer?.remove()
@@ -233,6 +345,15 @@ function setLayer(name: LayerName) {
     districtLayer?.addTo(map)
   } else if (name === 'young') {
     youngLayer?.addTo(map)
+    districtLayer?.addTo(map)
+  } else if (name === 'middle_aged') {
+    middleAgedLayer?.addTo(map)
+    districtLayer?.addTo(map)
+  } else if (name === 'older') {
+    olderLayer?.addTo(map)
+    districtLayer?.addTo(map)
+  } else if (name === 'seniors') {
+    seniorsLayer?.addTo(map)
     districtLayer?.addTo(map)
   } else if (name === 'democrat') {
     democratLayer?.addTo(map)
@@ -306,7 +427,7 @@ onUnmounted(() => {
   align-self: flex-start;
   font-size: 11px;
   color: #888;
-  margin-bottom: 4px;
+  margin-bottom: 12px;
 }
 
 .courtesy a {
@@ -350,6 +471,9 @@ onUnmounted(() => {
 .district-swatch  { background: #c0392b; }
 .hispanic-swatch  { background: #fb5b34; }
 .young-swatch     { background: #2171b5; }
+.middle-aged-swatch { background: #54278f; }
+.older-swatch     { background: #980043; }
+.seniors-swatch   { background: #016c59; }
 .democrat-swatch      { background: #31a354; }
 .unaffiliated-swatch  { background: #fd8d3c; }
 .republican-swatch    { background: #fb6a4a; }
@@ -359,6 +483,78 @@ onUnmounted(() => {
   height: 550px;
   border: 1px solid #ccc;
   border-radius: 4px;
+}
+
+.map-wrapper {
+  position: relative;
+}
+
+.sources-map-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  padding: 6px 12px;
+  background: white;
+  border: 2px solid rgba(0,0,0,0.2);
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.65);
+}
+
+.sources-map-btn:hover {
+  background: #f4f4f4;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modal-content {
+  background: white;
+  padding: 24px;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.modal-content ul {
+  padding-left: 20px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.modal-content li {
+  margin-bottom: 12px;
+}
+
+.close-btn {
+  padding: 8px 16px;
+  cursor: pointer;
+  background: #eee;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.close-btn:hover {
+  background: #ddd;
 }
 
 .loading, .error { margin-bottom: 0.5rem; color: #555; }
