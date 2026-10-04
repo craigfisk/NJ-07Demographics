@@ -17,6 +17,12 @@
       <label :class="{ active: layer === 'middle_aged' }" @click="setLayer('middle_aged')">
         <span class="swatch middle-aged-swatch"></span> Middle aged (% 35-49)
       </label>
+      <label :class="{ active: layer === 'older' }" @click="setLayer('older')">
+        <span class="swatch older-swatch"></span> Older adults (% 50-64)
+      </label>
+      <label :class="{ active: layer === 'seniors' }" @click="setLayer('seniors')">
+        <span class="swatch seniors-swatch"></span> Seniors (% 65+)
+      </label>
       <label :class="{ active: layer === 'democrat' }" @click="setLayer('democrat')">
         <span class="swatch democrat-swatch"></span> Registered Dems (%)
       </label>
@@ -38,6 +44,8 @@
         {{ layer === 'hispanic'    ? '% Hispanic/Latino'
          : layer === 'young'       ? '% age 18–34'
          : layer === 'middle_aged' ? '% age 35–49'
+         : layer === 'older'       ? '% age 50–64'
+         : layer === 'seniors'     ? '% age 65+'
          : layer === 'democrat'    ? '% Registered Democrat'
          : layer === 'republican'  ? '% Registered Republican'
          :                           '% Unaffiliated' }}
@@ -50,7 +58,7 @@
       </div>
       <div class="legend-note">
         {{ layer === 'hispanic' ? 'Source: ACS 2024 5-yr, Census tracts within NJ-07'
-         : layer === 'young' || layer === 'middle_aged' ? 'Source: ACS 2024 5-yr, voting-age pop.'
+         : layer === 'young' || layer === 'middle_aged' || layer === 'older' || layer === 'seniors' ? 'Source: ACS 2024 5-yr, voting-age pop.'
          :                        'Source: NJ Division of Elections SVRS (placeholder data)' }}
       </div>
     </div>
@@ -62,6 +70,8 @@
           <li><strong>% Hispanic/Latino:</strong> American Community Survey (ACS) 2024 5-year estimates (Census tracts within NJ-07).</li>
           <li><strong>Young voters (% age 18–34):</strong> American Community Survey (ACS) 2024 5-year estimates (voting-age population).</li>
           <li><strong>Middle aged (% age 35–49):</strong> American Community Survey (ACS) 2024 5-year estimates (voting-age population).</li>
+          <li><strong>Older adults (% age 50–64):</strong> American Community Survey (ACS) 2024 5-year estimates (voting-age population).</li>
+          <li><strong>Seniors (% age 65+):</strong> American Community Survey (ACS) 2024 5-year estimates (voting-age population).</li>
           <li><strong>Registered Democrats, Republicans, and Unaffiliated Voters:</strong> NJ Division of Elections Statewide Voter Registration System (SVRS). <em>(Note: Currently utilizing placeholder data for demonstration purposes)</em>.</li>
         </ul>
         <button class="close-btn" @click="showSources = false">Close</button>
@@ -75,7 +85,7 @@ import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 
-type LayerName = 'district' | 'hispanic' | 'young' | 'middle_aged' | 'democrat' | 'unaffiliated' | 'republican'
+type LayerName = 'district' | 'hispanic' | 'young' | 'middle_aged' | 'older' | 'seniors' | 'democrat' | 'unaffiliated' | 'republican'
 
 const mapEl = ref<HTMLElement | null>(null)
 const loading = ref(true)
@@ -88,6 +98,8 @@ let districtLayer: L.GeoJSON | null = null
 let hispanicLayer: L.GeoJSON | null = null
 let youngLayer: L.GeoJSON | null = null
 let middleAgedLayer: L.GeoJSON | null = null
+let olderLayer: L.GeoJSON | null = null
+let seniorsLayer: L.GeoJSON | null = null
 let democratLayer: L.GeoJSON | null = null
 let unaffiliatedLayer: L.GeoJSON | null = null
 let republicanLayer: L.GeoJSON | null = null
@@ -103,6 +115,12 @@ const youngColors  = ['#f7fbff', '#9ecae1', '#4292c6', '#2171b5', '#084594']
 
 const middleAgedBreaks = [0, 15, 20, 25, 30, 100]
 const middleAgedColors = ['#f2f0f7', '#cbc9e2', '#9e9ac8', '#756bb1', '#54278f']
+
+const olderBreaks = [0, 15, 20, 25, 30, 100]
+const olderColors = ['#f1eef6', '#d7b5d8', '#df65b0', '#dd1c77', '#980043']
+
+const seniorsBreaks = [0, 10, 15, 20, 25, 100]
+const seniorsColors = ['#f6eff7', '#bdc9e1', '#67a9cf', '#1c9099', '#016c59']
 
 const demBreaks = [0, 35, 45, 50, 55, 100]
 const demColors = ['#edf8e9', '#bae4b3', '#74c476', '#31a354', '#006d2c']
@@ -125,6 +143,8 @@ const activeLegend = computed(() => {
     layer.value === 'hispanic'     ? [hispanicBreaks, hispanicColors]
     : layer.value === 'young'      ? [youngBreaks,    youngColors]
     : layer.value === 'middle_aged'? [middleAgedBreaks, middleAgedColors]
+    : layer.value === 'older'      ? [olderBreaks,    olderColors]
+    : layer.value === 'seniors'    ? [seniorsBreaks,  seniorsColors]
     : layer.value === 'democrat'   ? [demBreaks,      demColors]
     : layer.value === 'republican' ? [repBreaks,      repColors]
     :                                [unaffBreaks,    unaffColors]
@@ -190,6 +210,48 @@ function buildDemoLayers() {
       l.bindTooltip(
         `<strong>Tract ${p.TRACT}</strong><br>` +
         `Age 35–49: <b>${val}</b><br>` +
+        `Pop: ${p.total_pop?.toLocaleString() ?? 'Unknown'}`,
+        { sticky: true }
+      )
+    },
+  })
+
+  olderLayer = L.geoJSON(demoData, {
+    style: (f) => ({
+      fillColor: f?.properties.pct_older != null 
+        ? colorFor(f.properties.pct_older, olderBreaks, olderColors)
+        : '#ccc',
+      fillOpacity: 0.75,
+      color: '#666',
+      weight: 0.5,
+    }),
+    onEachFeature: (f, l) => {
+      const p = f.properties
+      const val = p.pct_older != null ? `${p.pct_older}%` : 'No data'
+      l.bindTooltip(
+        `<strong>Tract ${p.TRACT}</strong><br>` +
+        `Age 50–64: <b>${val}</b><br>` +
+        `Pop: ${p.total_pop?.toLocaleString() ?? 'Unknown'}`,
+        { sticky: true }
+      )
+    },
+  })
+
+  seniorsLayer = L.geoJSON(demoData, {
+    style: (f) => ({
+      fillColor: f?.properties.pct_seniors != null 
+        ? colorFor(f.properties.pct_seniors, seniorsBreaks, seniorsColors)
+        : '#ccc',
+      fillOpacity: 0.75,
+      color: '#666',
+      weight: 0.5,
+    }),
+    onEachFeature: (f, l) => {
+      const p = f.properties
+      const val = p.pct_seniors != null ? `${p.pct_seniors}%` : 'No data'
+      l.bindTooltip(
+        `<strong>Tract ${p.TRACT}</strong><br>` +
+        `Age 65+: <b>${val}</b><br>` +
         `Pop: ${p.total_pop?.toLocaleString() ?? 'Unknown'}`,
         { sticky: true }
       )
@@ -269,6 +331,8 @@ function setLayer(name: LayerName) {
   hispanicLayer?.remove()
   youngLayer?.remove()
   middleAgedLayer?.remove()
+  olderLayer?.remove()
+  seniorsLayer?.remove()
   democratLayer?.remove()
   unaffiliatedLayer?.remove()
   republicanLayer?.remove()
@@ -284,6 +348,12 @@ function setLayer(name: LayerName) {
     districtLayer?.addTo(map)
   } else if (name === 'middle_aged') {
     middleAgedLayer?.addTo(map)
+    districtLayer?.addTo(map)
+  } else if (name === 'older') {
+    olderLayer?.addTo(map)
+    districtLayer?.addTo(map)
+  } else if (name === 'seniors') {
+    seniorsLayer?.addTo(map)
     districtLayer?.addTo(map)
   } else if (name === 'democrat') {
     democratLayer?.addTo(map)
@@ -402,6 +472,8 @@ onUnmounted(() => {
 .hispanic-swatch  { background: #fb5b34; }
 .young-swatch     { background: #2171b5; }
 .middle-aged-swatch { background: #54278f; }
+.older-swatch     { background: #980043; }
+.seniors-swatch   { background: #016c59; }
 .democrat-swatch      { background: #31a354; }
 .unaffiliated-swatch  { background: #fd8d3c; }
 .republican-swatch    { background: #fb6a4a; }

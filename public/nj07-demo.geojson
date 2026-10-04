@@ -533,7 +533,9 @@
         "pct_hispanic": 16.2,
         "pct_spanish": 10.4,
         "pct_young": 17.5,
-        "pct_middle_aged": 21
+        "pct_middle_aged": 21,
+        "pct_older": 24.4,
+        "pct_seniors": 13.9
       }
     },
     {
@@ -976,7 +978,9 @@
         "pct_hispanic": 6.2,
         "pct_spanish": 3.3,
         "pct_young": 10.0,
-        "pct_middle_aged": 23.8
+        "pct_middle_aged": 23.8,
+        "pct_older": 23.5,
+        "pct_seniors": 13.8
       }
     },
     {
@@ -2343,7 +2347,9 @@
         "pct_hispanic": 8.4,
         "pct_spanish": 4.5,
         "pct_young": 10.4,
-        "pct_middle_aged": 20.8
+        "pct_middle_aged": 20.8,
+        "pct_older": 20.3,
+        "pct_seniors": 13.5
       }
     },
     {
@@ -3206,7 +3212,9 @@
         "pct_hispanic": 13.5,
         "pct_spanish": 12.2,
         "pct_young": 16.5,
-        "pct_middle_aged": 16.5
+        "pct_middle_aged": 16.5,
+        "pct_older": 18.1,
+        "pct_seniors": 15.3
       }
     },
     {
@@ -3981,7 +3989,9 @@
         "pct_hispanic": 10.2,
         "pct_spanish": 4.6,
         "pct_young": 20.8,
-        "pct_middle_aged": 26.8
+        "pct_middle_aged": 26.8,
+        "pct_older": 19.7,
+        "pct_seniors": 11.4
       }
     },
     {
@@ -5472,7 +5482,9 @@
         "pct_hispanic": 48.9,
         "pct_spanish": 43.6,
         "pct_young": 23.0,
-        "pct_middle_aged": 26.7
+        "pct_middle_aged": 26.7,
+        "pct_older": 18.7,
+        "pct_seniors": 13.3
       }
     },
     {
@@ -8179,7 +8191,9 @@
         "pct_hispanic": 7.2,
         "pct_spanish": 4.0,
         "pct_young": 14.2,
-        "pct_middle_aged": 24.4
+        "pct_middle_aged": 24.4,
+        "pct_older": 24.6,
+        "pct_seniors": 17.9
       }
     },
     {
@@ -9606,7 +9620,9 @@
         "pct_hispanic": 7.8,
         "pct_spanish": 5.2,
         "pct_young": 15.2,
-        "pct_middle_aged": 24.1
+        "pct_middle_aged": 24.1,
+        "pct_older": 16.6,
+        "pct_seniors": 16.1
       }
     },
     {
@@ -10873,7 +10889,9 @@
         "pct_hispanic": 6.8,
         "pct_spanish": 4.2,
         "pct_young": 11.0,
-        "pct_middle_aged": 26.2
+        "pct_middle_aged": 26.2,
+        "pct_older": 23.7,
+        "pct_seniors": 15.8
       }
     },
     {
@@ -11724,7 +11742,9 @@
         "pct_hispanic": 28.3,
         "pct_spanish": 25.9,
         "pct_young": 17.0,
-        "pct_middle_aged": 20.8
+        "pct_middle_aged": 20.8,
+        "pct_older": 24.3,
+        "pct_seniors": 15.9
       }
     },
     {
@@ -12063,7 +12083,9 @@
         "pct_hispanic": 9.7,
         "pct_spanish": 3.9,
         "pct_young": 18.8,
-        "pct_middle_aged": 23.5
+        "pct_middle_aged": 23.5,
+        "pct_older": 21.5,
+        "pct_seniors": 13.6
       }
     },
     {
@@ -15930,7 +15952,9 @@
         "pct_hispanic": 26.4,
         "pct_spanish": 13.8,
         "pct_young": 21.6,
-        "pct_middle_aged": 29.1
+        "pct_middle_aged": 29.1,
+        "pct_older": 24.9,
+        "pct_seniors": 16.9
       }
     },
     {
@@ -17577,7 +17601,9 @@
         "pct_hispanic": 12.7,
         "pct_spanish": 5.5,
         "pct_young": 8.1,
-        "pct_middle_aged": 18.1
+        "pct_middle_aged": 18.1,
+        "pct_older": 24.2,
+        "pct_seniors": 13.9
       }
     },
     {
@@ -24536,7 +24562,9 @@
         "pct_hispanic": 7.8,
         "pct_spanish": 4.1,
         "pct_young": 15.9,
-        "pct_middle_aged": 17.7
+        "pct_middle_aged": 17.7,
+        "pct_older": 15.1,
+        "pct_seniors": 16
       }
     },
     {
@@ -25975,7 +26003,9 @@
         "pct_hispanic": 6.3,
         "pct_spanish": 1.7,
         "pct_young": 13.2,
-        "pct_middle_aged": 25.9
+        "pct_middle_aged": 25.9,
+        "pct_older": 24.7,
+        "pct_seniors": 14.9
       }
     },
     {
@@ -27402,7 +27432,9 @@
         "pct_hispanic": 6.6,
         "pct_spanish": 3.4,
         "pct_young": 19.4,
-        "pct_middle_aged": 26.2
+        "pct_middle_aged": 26.2,
+        "pct_older": 20.7,
+        "pct_seniors": 16.5
       }
     },
     {
@@ -27601,7 +27633,9 @@
         "pct_hispanic": 30.0,
         "pct_spanish": 23.0,
         "pct_young": 25.3,
-        "pct_middle_aged": 21.7
+        "pct_middle_aged": 21.7,
+        "pct_older": 18.4,
+        "pct_seniors": 14.3
       }
     },
     {
@@ -27968,7 +28002,9 @@
         "pct_hispanic": 38.5,
         "pct_spanish": 30.2,
         "pct_young": 21.7,
-        "pct_middle_aged": 21.1
+        "pct_middle_aged": 21.1,
+        "pct_older": 21.4,
+        "pct_seniors": 12.6
       }
     },
     {
@@ -28267,7 +28303,9 @@
         "pct_hispanic": 20.8,
         "pct_spanish": 17.2,
         "pct_young": 25.2,
-        "pct_middle_aged": 26.1
+        "pct_middle_aged": 26.1,
+        "pct_older": 21.7,
+        "pct_seniors": 14.6
       }
     },
     {
@@ -28598,7 +28636,9 @@
         "pct_hispanic": 49.8,
         "pct_spanish": 39.2,
         "pct_young": 22.5,
-        "pct_middle_aged": 16.5
+        "pct_middle_aged": 16.5,
+        "pct_older": 21.1,
+        "pct_seniors": 16.6
       }
     },
     {
@@ -29005,7 +29045,9 @@
         "pct_hispanic": 33.8,
         "pct_spanish": 25.5,
         "pct_young": 25.6,
-        "pct_middle_aged": 27
+        "pct_middle_aged": 27,
+        "pct_older": 24.8,
+        "pct_seniors": 17.9
       }
     },
     {
@@ -29516,7 +29558,9 @@
         "pct_hispanic": 21.6,
         "pct_spanish": 13.8,
         "pct_young": 19.4,
-        "pct_middle_aged": 28.9
+        "pct_middle_aged": 28.9,
+        "pct_older": 22.9,
+        "pct_seniors": 13.7
       }
     },
     {
@@ -31367,7 +31411,9 @@
         "pct_hispanic": 8.3,
         "pct_spanish": 5.0,
         "pct_young": 10.2,
-        "pct_middle_aged": 27.9
+        "pct_middle_aged": 27.9,
+        "pct_older": 18.8,
+        "pct_seniors": 16.3
       }
     },
     {
@@ -32442,7 +32488,9 @@
         "pct_hispanic": 9.1,
         "pct_spanish": 4.1,
         "pct_young": 19.1,
-        "pct_middle_aged": 28
+        "pct_middle_aged": 28,
+        "pct_older": 23.8,
+        "pct_seniors": 13.8
       }
     },
     {
@@ -33249,7 +33297,9 @@
         "pct_hispanic": 13.8,
         "pct_spanish": 8.4,
         "pct_young": 16.1,
-        "pct_middle_aged": 19.3
+        "pct_middle_aged": 19.3,
+        "pct_older": 17.2,
+        "pct_seniors": 13.2
       }
     },
     {
@@ -34936,7 +34986,9 @@
         "pct_hispanic": 10.1,
         "pct_spanish": 6.3,
         "pct_young": 11.8,
-        "pct_middle_aged": 16.6
+        "pct_middle_aged": 16.6,
+        "pct_older": 15.1,
+        "pct_seniors": 16
       }
     },
     {
@@ -41239,7 +41291,9 @@
         "pct_hispanic": 7.1,
         "pct_spanish": 3.5,
         "pct_young": 7.3,
-        "pct_middle_aged": 19.3
+        "pct_middle_aged": 19.3,
+        "pct_older": 22.2,
+        "pct_seniors": 16.7
       }
     },
     {
@@ -42214,7 +42268,9 @@
         "pct_hispanic": 7.2,
         "pct_spanish": 2.9,
         "pct_young": 13.9,
-        "pct_middle_aged": 25.5
+        "pct_middle_aged": 25.5,
+        "pct_older": 20.7,
+        "pct_seniors": 16.5
       }
     },
     {
@@ -45229,7 +45285,9 @@
         "pct_hispanic": 6.8,
         "pct_spanish": 6.0,
         "pct_young": 14.6,
-        "pct_middle_aged": 25.2
+        "pct_middle_aged": 25.2,
+        "pct_older": 18.6,
+        "pct_seniors": 14.3
       }
     },
     {
@@ -54256,7 +54314,9 @@
         "pct_hispanic": 6.0,
         "pct_spanish": 3.9,
         "pct_young": 14.1,
-        "pct_middle_aged": 22.8
+        "pct_middle_aged": 22.8,
+        "pct_older": 21.5,
+        "pct_seniors": 15.6
       }
     },
     {
@@ -54667,7 +54727,9 @@
         "pct_hispanic": 34.1,
         "pct_spanish": 31.8,
         "pct_young": 32.5,
-        "pct_middle_aged": 29.4
+        "pct_middle_aged": 29.4,
+        "pct_older": 23.9,
+        "pct_seniors": 14.8
       }
     },
     {
@@ -61394,7 +61456,9 @@
         "pct_hispanic": 12.8,
         "pct_spanish": 8.7,
         "pct_young": 18.8,
-        "pct_middle_aged": 21
+        "pct_middle_aged": 21,
+        "pct_older": 24.4,
+        "pct_seniors": 13.9
       }
     },
     {
@@ -62185,7 +62249,9 @@
         "pct_hispanic": 8.4,
         "pct_spanish": 3.2,
         "pct_young": 8.6,
-        "pct_middle_aged": 22.9
+        "pct_middle_aged": 22.9,
+        "pct_older": 16.5,
+        "pct_seniors": 14.1
       }
     },
     {
@@ -69940,7 +70006,9 @@
         "pct_hispanic": 8.6,
         "pct_spanish": 7.2,
         "pct_young": 13.3,
-        "pct_middle_aged": 28.5
+        "pct_middle_aged": 28.5,
+        "pct_older": 24.9,
+        "pct_seniors": 15.9
       }
     },
     {
@@ -77143,7 +77211,9 @@
         "pct_hispanic": 5.2,
         "pct_spanish": 1.1,
         "pct_young": 15.1,
-        "pct_middle_aged": 29.2
+        "pct_middle_aged": 29.2,
+        "pct_older": 22.9,
+        "pct_seniors": 15.7
       }
     },
     {
@@ -79050,7 +79120,9 @@
         "pct_hispanic": 5.7,
         "pct_spanish": 2.4,
         "pct_young": 19.2,
-        "pct_middle_aged": 28
+        "pct_middle_aged": 28,
+        "pct_older": 20.8,
+        "pct_seniors": 15.5
       }
     },
     {
@@ -81197,7 +81269,9 @@
         "pct_hispanic": 18.3,
         "pct_spanish": 13.2,
         "pct_young": 18.7,
-        "pct_middle_aged": 24
+        "pct_middle_aged": 24,
+        "pct_older": 22.6,
+        "pct_seniors": 15.7
       }
     },
     {
@@ -81724,7 +81798,9 @@
         "pct_hispanic": 25.8,
         "pct_spanish": 14.7,
         "pct_young": 14.7,
-        "pct_middle_aged": 15
+        "pct_middle_aged": 15,
+        "pct_older": 19,
+        "pct_seniors": 15.4
       }
     },
     {
@@ -83351,7 +83427,9 @@
         "pct_hispanic": 11.1,
         "pct_spanish": 2.7,
         "pct_young": 15.9,
-        "pct_middle_aged": 28.6
+        "pct_middle_aged": 28.6,
+        "pct_older": 22.9,
+        "pct_seniors": 14.7
       }
     },
     {
@@ -90182,7 +90260,9 @@
         "pct_hispanic": 8.8,
         "pct_spanish": 4.6,
         "pct_young": 13.8,
-        "pct_middle_aged": 27.7
+        "pct_middle_aged": 27.7,
+        "pct_older": 19.8,
+        "pct_seniors": 16.4
       }
     },
     {
@@ -92713,7 +92793,9 @@
         "pct_hispanic": 31.5,
         "pct_spanish": 21.1,
         "pct_young": 26.7,
-        "pct_middle_aged": 17.2
+        "pct_middle_aged": 17.2,
+        "pct_older": 23.1,
+        "pct_seniors": 14.8
       }
     },
     {
@@ -98856,7 +98938,9 @@
         "pct_hispanic": 11.8,
         "pct_spanish": 4.9,
         "pct_young": 17.8,
-        "pct_middle_aged": 29.5
+        "pct_middle_aged": 29.5,
+        "pct_older": 18.9,
+        "pct_seniors": 12.3
       }
     },
     {
@@ -106391,7 +106475,9 @@
         "pct_hispanic": 11.1,
         "pct_spanish": 6.8,
         "pct_young": 21.3,
-        "pct_middle_aged": 19.2
+        "pct_middle_aged": 19.2,
+        "pct_older": 23.2,
+        "pct_seniors": 11.8
       }
     },
     {
@@ -107254,7 +107340,9 @@
         "pct_hispanic": 10.9,
         "pct_spanish": 1.7,
         "pct_young": 24.1,
-        "pct_middle_aged": 20.2
+        "pct_middle_aged": 20.2,
+        "pct_older": 19.3,
+        "pct_seniors": 13.4
       }
     },
     {
@@ -107613,7 +107701,9 @@
         "pct_hispanic": 17.2,
         "pct_spanish": 15.4,
         "pct_young": 20.1,
-        "pct_middle_aged": 24
+        "pct_middle_aged": 24,
+        "pct_older": 16.6,
+        "pct_seniors": 12.1
       }
     },
     {
@@ -108356,7 +108446,9 @@
         "pct_hispanic": 13.3,
         "pct_spanish": 10.4,
         "pct_young": 24.2,
-        "pct_middle_aged": 28.3
+        "pct_middle_aged": 28.3,
+        "pct_older": 22.8,
+        "pct_seniors": 12.7
       }
     },
     {
@@ -108659,7 +108751,9 @@
         "pct_hispanic": 11.6,
         "pct_spanish": 7.8,
         "pct_young": 20.3,
-        "pct_middle_aged": 27
+        "pct_middle_aged": 27,
+        "pct_older": 20.8,
+        "pct_seniors": 13.5
       }
     },
     {
@@ -112222,7 +112316,9 @@
         "pct_hispanic": 11.9,
         "pct_spanish": 10.0,
         "pct_young": 16.2,
-        "pct_middle_aged": 27.1
+        "pct_middle_aged": 27.1,
+        "pct_older": 20.8,
+        "pct_seniors": 13.5
       }
     },
     {
@@ -114777,7 +114873,9 @@
         "pct_hispanic": 7.2,
         "pct_spanish": 5.7,
         "pct_young": 19.3,
-        "pct_middle_aged": 15
+        "pct_middle_aged": 15,
+        "pct_older": 24,
+        "pct_seniors": 14.9
       }
     },
     {
@@ -117752,7 +117850,9 @@
         "pct_hispanic": 4.6,
         "pct_spanish": 2.9,
         "pct_young": 10.6,
-        "pct_middle_aged": 28.8
+        "pct_middle_aged": 28.8,
+        "pct_older": 18.9,
+        "pct_seniors": 14.3
       }
     },
     {
@@ -118707,7 +118807,9 @@
         "pct_hispanic": 6.7,
         "pct_spanish": 5.6,
         "pct_young": 9.7,
-        "pct_middle_aged": 19.3
+        "pct_middle_aged": 19.3,
+        "pct_older": 19.2,
+        "pct_seniors": 15.4
       }
     },
     {
@@ -119258,7 +119360,9 @@
         "pct_hispanic": 14.9,
         "pct_spanish": 12.0,
         "pct_young": 21.3,
-        "pct_middle_aged": 29.5
+        "pct_middle_aged": 29.5,
+        "pct_older": 23.9,
+        "pct_seniors": 12.8
       }
     },
     {
@@ -119557,7 +119661,9 @@
         "pct_hispanic": 22.0,
         "pct_spanish": 13.8,
         "pct_young": 25.2,
-        "pct_middle_aged": 25.8
+        "pct_middle_aged": 25.8,
+        "pct_older": 17.7,
+        "pct_seniors": 14.2
       }
     },
     {
@@ -119964,7 +120070,9 @@
         "pct_hispanic": 22.5,
         "pct_spanish": 18.4,
         "pct_young": 25.7,
-        "pct_middle_aged": 20.4
+        "pct_middle_aged": 20.4,
+        "pct_older": 23.3,
+        "pct_seniors": 15.8
       }
     },
     {
@@ -121135,7 +121243,9 @@
         "pct_hispanic": 11.8,
         "pct_spanish": 7.2,
         "pct_young": 17.5,
-        "pct_middle_aged": 24.9
+        "pct_middle_aged": 24.9,
+        "pct_older": 20.6,
+        "pct_seniors": 16.5
       }
     },
     {
@@ -122538,7 +122648,9 @@
         "pct_hispanic": 13.9,
         "pct_spanish": 10.3,
         "pct_young": 13.5,
-        "pct_middle_aged": 25.3
+        "pct_middle_aged": 25.3,
+        "pct_older": 20.6,
+        "pct_seniors": 15.5
       }
     },
     {
@@ -124617,7 +124729,9 @@
         "pct_hispanic": 12.2,
         "pct_spanish": 4.9,
         "pct_young": 18.6,
-        "pct_middle_aged": 28
+        "pct_middle_aged": 28,
+        "pct_older": 19.8,
+        "pct_seniors": 13.4
       }
     },
     {
@@ -125112,7 +125226,9 @@
         "pct_hispanic": 38.5,
         "pct_spanish": 21.2,
         "pct_young": 24.8,
-        "pct_middle_aged": 19.6
+        "pct_middle_aged": 19.6,
+        "pct_older": 18.3,
+        "pct_seniors": 15.3
       }
     },
     {
@@ -129659,7 +129775,9 @@
         "pct_hispanic": 4.8,
         "pct_spanish": 4.2,
         "pct_young": 14.4,
-        "pct_middle_aged": 29.7
+        "pct_middle_aged": 29.7,
+        "pct_older": 16.9,
+        "pct_seniors": 13.1
       }
     },
     {
@@ -130262,7 +130380,9 @@
         "pct_hispanic": 15.3,
         "pct_spanish": 7.6,
         "pct_young": 19.0,
-        "pct_middle_aged": 20.1
+        "pct_middle_aged": 20.1,
+        "pct_older": 19.3,
+        "pct_seniors": 12.4
       }
     },
     {
@@ -138493,7 +138613,9 @@
         "pct_hispanic": 15.2,
         "pct_spanish": 7.8,
         "pct_young": 15.8,
-        "pct_middle_aged": 21.3
+        "pct_middle_aged": 21.3,
+        "pct_older": 16.4,
+        "pct_seniors": 16.1
       }
     },
     {
@@ -139548,7 +139670,9 @@
         "pct_hispanic": 13.8,
         "pct_spanish": 9.5,
         "pct_young": 21.0,
-        "pct_middle_aged": 15.1
+        "pct_middle_aged": 15.1,
+        "pct_older": 20,
+        "pct_seniors": 13.5
       }
     },
     {
@@ -140539,7 +140663,9 @@
         "pct_hispanic": 10.6,
         "pct_spanish": 4.3,
         "pct_young": 11.8,
-        "pct_middle_aged": 16.9
+        "pct_middle_aged": 16.9,
+        "pct_older": 18.1,
+        "pct_seniors": 13.3
       }
     },
     {
@@ -142118,7 +142244,9 @@
         "pct_hispanic": 24.3,
         "pct_spanish": 15.7,
         "pct_young": 23.7,
-        "pct_middle_aged": 21.6
+        "pct_middle_aged": 21.6,
+        "pct_older": 15.4,
+        "pct_seniors": 14
       }
     },
     {
@@ -143625,7 +143753,9 @@
         "pct_hispanic": 14.0,
         "pct_spanish": 5.9,
         "pct_young": 20.9,
-        "pct_middle_aged": 18.1
+        "pct_middle_aged": 18.1,
+        "pct_older": 18.2,
+        "pct_seniors": 19.3
       }
     },
     {
@@ -144596,7 +144726,9 @@
         "pct_hispanic": 9.2,
         "pct_spanish": 6.2,
         "pct_young": 15.8,
-        "pct_middle_aged": 20.4
+        "pct_middle_aged": 20.4,
+        "pct_older": 19.3,
+        "pct_seniors": 12.4
       }
     },
     {
@@ -145579,7 +145711,9 @@
         "pct_hispanic": 14.8,
         "pct_spanish": 9.7,
         "pct_young": 18.4,
-        "pct_middle_aged": 22.3
+        "pct_middle_aged": 22.3,
+        "pct_older": 22.4,
+        "pct_seniors": 14.7
       }
     },
     {
@@ -153794,7 +153928,9 @@
         "pct_hispanic": 1.7,
         "pct_spanish": 0.5,
         "pct_young": 14.9,
-        "pct_middle_aged": 22.5
+        "pct_middle_aged": 22.5,
+        "pct_older": 20.5,
+        "pct_seniors": 14.5
       }
     },
     {
@@ -155213,7 +155349,9 @@
         "pct_hispanic": 26.5,
         "pct_spanish": 20.4,
         "pct_young": 29.2,
-        "pct_middle_aged": 17.1
+        "pct_middle_aged": 17.1,
+        "pct_older": 24.1,
+        "pct_seniors": 13.9
       }
     },
     {
@@ -155928,7 +156066,9 @@
         "pct_hispanic": 6.9,
         "pct_spanish": 5.0,
         "pct_young": 16.4,
-        "pct_middle_aged": 27.1
+        "pct_middle_aged": 27.1,
+        "pct_older": 17.8,
+        "pct_seniors": 13.2
       }
     },
     {
@@ -159423,7 +159563,9 @@
         "pct_hispanic": 7.3,
         "pct_spanish": 4.6,
         "pct_young": 16.9,
-        "pct_middle_aged": 22.2
+        "pct_middle_aged": 22.2,
+        "pct_older": 16.4,
+        "pct_seniors": 16.1
       }
     },
     {
@@ -159902,7 +160044,9 @@
         "pct_hispanic": 14.2,
         "pct_spanish": 8.6,
         "pct_young": 30.1,
-        "pct_middle_aged": 19.3
+        "pct_middle_aged": 19.3,
+        "pct_older": 19.2,
+        "pct_seniors": 13.4
       }
     },
     {
@@ -162353,7 +162497,9 @@
         "pct_hispanic": 8.3,
         "pct_spanish": 5.3,
         "pct_young": 13.9,
-        "pct_middle_aged": 27.9
+        "pct_middle_aged": 27.9,
+        "pct_older": 19.8,
+        "pct_seniors": 13.4
       }
     },
     {
@@ -166264,7 +166410,9 @@
         "pct_hispanic": 19.0,
         "pct_spanish": 10.1,
         "pct_young": 20.6,
-        "pct_middle_aged": 19.2
+        "pct_middle_aged": 19.2,
+        "pct_older": 15.2,
+        "pct_seniors": 17
       }
     },
     {
@@ -168527,7 +168675,9 @@
         "pct_hispanic": 4.4,
         "pct_spanish": 1.5,
         "pct_young": 19.1,
-        "pct_middle_aged": 22
+        "pct_middle_aged": 22,
+        "pct_older": 15.4,
+        "pct_seniors": 15
       }
     },
     {
@@ -170594,7 +170744,9 @@
         "pct_hispanic": 8.4,
         "pct_spanish": 4.6,
         "pct_young": 18.6,
-        "pct_middle_aged": 21.4
+        "pct_middle_aged": 21.4,
+        "pct_older": 20.4,
+        "pct_seniors": 16.5
       }
     },
     {
@@ -174793,7 +174945,9 @@
         "pct_hispanic": 2.0,
         "pct_spanish": 1.2,
         "pct_young": 9.9,
-        "pct_middle_aged": 15.9
+        "pct_middle_aged": 15.9,
+        "pct_older": 19,
+        "pct_seniors": 14.4
       }
     },
     {
@@ -177052,7 +177206,9 @@
         "pct_hispanic": 3.2,
         "pct_spanish": 2.8,
         "pct_young": 10.7,
-        "pct_middle_aged": 22
+        "pct_middle_aged": 22,
+        "pct_older": 23.4,
+        "pct_seniors": 11.8
       }
     },
     {
@@ -180783,7 +180939,9 @@
         "pct_hispanic": 16.8,
         "pct_spanish": 5.4,
         "pct_young": 15.3,
-        "pct_middle_aged": 26.8
+        "pct_middle_aged": 26.8,
+        "pct_older": 19.7,
+        "pct_seniors": 12.4
       }
     },
     {
@@ -184802,7 +184960,9 @@
         "pct_hispanic": 10.0,
         "pct_spanish": 3.0,
         "pct_young": 17.0,
-        "pct_middle_aged": 18.4
+        "pct_middle_aged": 18.4,
+        "pct_older": 19.2,
+        "pct_seniors": 14.4
       }
     },
     {
@@ -188921,7 +189081,9 @@
         "pct_hispanic": 6.3,
         "pct_spanish": 4.4,
         "pct_young": 21.3,
-        "pct_middle_aged": 18.7
+        "pct_middle_aged": 18.7,
+        "pct_older": 23.2,
+        "pct_seniors": 14.8
       }
     },
     {
@@ -191652,7 +191814,9 @@
         "pct_hispanic": 6.3,
         "pct_spanish": 2.8,
         "pct_young": 24.8,
-        "pct_middle_aged": 18.6
+        "pct_middle_aged": 18.6,
+        "pct_older": 18.2,
+        "pct_seniors": 13.3
       }
     },
     {
@@ -197747,7 +197911,9 @@
         "pct_hispanic": 11.6,
         "pct_spanish": 8.0,
         "pct_young": 21.9,
-        "pct_middle_aged": 19.3
+        "pct_middle_aged": 19.3,
+        "pct_older": 15.2,
+        "pct_seniors": 13
       }
     },
     {
@@ -203418,7 +203584,9 @@
         "pct_hispanic": 4.7,
         "pct_spanish": 5.6,
         "pct_young": 13.2,
-        "pct_middle_aged": 20.2
+        "pct_middle_aged": 20.2,
+        "pct_older": 16.3,
+        "pct_seniors": 14.1
       }
     },
     {
@@ -207073,7 +207241,9 @@
         "pct_hispanic": 8.3,
         "pct_spanish": 4.2,
         "pct_young": 11.9,
-        "pct_middle_aged": 29.5
+        "pct_middle_aged": 29.5,
+        "pct_older": 22.9,
+        "pct_seniors": 14.7
       }
     },
     {
@@ -209548,7 +209718,9 @@
         "pct_hispanic": 17.3,
         "pct_spanish": 5.7,
         "pct_young": 15.3,
-        "pct_middle_aged": 17.8
+        "pct_middle_aged": 17.8,
+        "pct_older": 18.1,
+        "pct_seniors": 14.3
       }
     },
     {
@@ -212451,7 +212623,9 @@
         "pct_hispanic": 10.4,
         "pct_spanish": 9.4,
         "pct_young": 10.4,
-        "pct_middle_aged": 22.2
+        "pct_middle_aged": 22.2,
+        "pct_older": 24.4,
+        "pct_seniors": 10.9
       }
     },
     {
@@ -214170,7 +214344,9 @@
         "pct_hispanic": 3.0,
         "pct_spanish": 1.8,
         "pct_young": 16.4,
-        "pct_middle_aged": 23.8
+        "pct_middle_aged": 23.8,
+        "pct_older": 15.5,
+        "pct_seniors": 15
       }
     },
     {
@@ -215049,7 +215225,9 @@
         "pct_hispanic": 10.0,
         "pct_spanish": 7.6,
         "pct_young": 20.0,
-        "pct_middle_aged": 24.7
+        "pct_middle_aged": 24.7,
+        "pct_older": 21.6,
+        "pct_seniors": 12.6
       }
     },
     {
@@ -217180,7 +217358,9 @@
         "pct_hispanic": 5.7,
         "pct_spanish": 3.0,
         "pct_young": 16.3,
-        "pct_middle_aged": 20.7
+        "pct_middle_aged": 20.7,
+        "pct_older": 20.3,
+        "pct_seniors": 12.5
       }
     },
     {
@@ -218403,7 +218583,9 @@
         "pct_hispanic": 2.6,
         "pct_spanish": 1.7,
         "pct_young": 17.0,
-        "pct_middle_aged": 17.5
+        "pct_middle_aged": 17.5,
+        "pct_older": 20.1,
+        "pct_seniors": 12.5
       }
     },
     {
@@ -220042,7 +220224,9 @@
         "pct_hispanic": 17.9,
         "pct_spanish": 14.4,
         "pct_young": 20.2,
-        "pct_middle_aged": 24.7
+        "pct_middle_aged": 24.7,
+        "pct_older": 22.6,
+        "pct_seniors": 15.7
       }
     },
     {
@@ -221413,7 +221597,9 @@
         "pct_hispanic": 10.7,
         "pct_spanish": 4.6,
         "pct_young": 16.9,
-        "pct_middle_aged": 16.8
+        "pct_middle_aged": 16.8,
+        "pct_older": 20.1,
+        "pct_seniors": 15.5
       }
     },
     {
@@ -225832,7 +226018,9 @@
         "pct_hispanic": 11.7,
         "pct_spanish": 9.4,
         "pct_young": 18.6,
-        "pct_middle_aged": 21.9
+        "pct_middle_aged": 21.9,
+        "pct_older": 15.4,
+        "pct_seniors": 15
       }
     },
     {
@@ -230707,7 +230895,9 @@
         "pct_hispanic": 8.4,
         "pct_spanish": 1.7,
         "pct_young": 16.6,
-        "pct_middle_aged": 29.4
+        "pct_middle_aged": 29.4,
+        "pct_older": 24.9,
+        "pct_seniors": 12.9
       }
     },
     {
@@ -233694,7 +233884,9 @@
         "pct_hispanic": 12.5,
         "pct_spanish": 10.4,
         "pct_young": 13.4,
-        "pct_middle_aged": 22
+        "pct_middle_aged": 22,
+        "pct_older": 17.4,
+        "pct_seniors": 16.2
       }
     },
     {
@@ -238009,7 +238201,9 @@
         "pct_hispanic": 8.0,
         "pct_spanish": 4.0,
         "pct_young": 14.3,
-        "pct_middle_aged": 23.5
+        "pct_middle_aged": 23.5,
+        "pct_older": 24.5,
+        "pct_seniors": 12.9
       }
     },
     {
@@ -242636,7 +242830,9 @@
         "pct_hispanic": 7.5,
         "pct_spanish": 5.3,
         "pct_young": 12.7,
-        "pct_middle_aged": 19
+        "pct_middle_aged": 19,
+        "pct_older": 18.2,
+        "pct_seniors": 15.3
       }
     },
     {
@@ -245755,7 +245951,9 @@
         "pct_hispanic": 15.6,
         "pct_spanish": 9.9,
         "pct_young": 24.5,
-        "pct_middle_aged": 23.4
+        "pct_middle_aged": 23.4,
+        "pct_older": 21.5,
+        "pct_seniors": 15.6
       }
     },
     {
@@ -248682,7 +248880,9 @@
         "pct_hispanic": 19.7,
         "pct_spanish": 13.1,
         "pct_young": 25.8,
-        "pct_middle_aged": 18.3
+        "pct_middle_aged": 18.3,
+        "pct_older": 21.2,
+        "pct_seniors": 15.6
       }
     },
     {
@@ -251917,7 +252117,9 @@
         "pct_hispanic": 17.3,
         "pct_spanish": 12.7,
         "pct_young": 16.5,
-        "pct_middle_aged": 16.9
+        "pct_middle_aged": 16.9,
+        "pct_older": 20.1,
+        "pct_seniors": 14.5
       }
     },
     {
@@ -255032,7 +255234,9 @@
         "pct_hispanic": 9.5,
         "pct_spanish": 3.5,
         "pct_young": 26.2,
-        "pct_middle_aged": 28
+        "pct_middle_aged": 28,
+        "pct_older": 17.8,
+        "pct_seniors": 12.2
       }
     },
     {
@@ -255547,7 +255751,9 @@
         "pct_hispanic": 6.7,
         "pct_spanish": 2.9,
         "pct_young": 6.9,
-        "pct_middle_aged": 23.5
+        "pct_middle_aged": 23.5,
+        "pct_older": 21.5,
+        "pct_seniors": 15.6
       }
     },
     {
@@ -256302,7 +256508,9 @@
         "pct_hispanic": 9.0,
         "pct_spanish": 5.3,
         "pct_young": 17.6,
-        "pct_middle_aged": 29.4
+        "pct_middle_aged": 29.4,
+        "pct_older": 24.9,
+        "pct_seniors": 17.9
       }
     },
     {
@@ -256993,7 +257201,9 @@
         "pct_hispanic": 9.6,
         "pct_spanish": 6.1,
         "pct_young": 10.5,
-        "pct_middle_aged": 24.1
+        "pct_middle_aged": 24.1,
+        "pct_older": 20.6,
+        "pct_seniors": 17.5
       }
     },
     {
@@ -257484,7 +257694,9 @@
         "pct_hispanic": 4.5,
         "pct_spanish": 1.6,
         "pct_young": 8.9,
-        "pct_middle_aged": 19.8
+        "pct_middle_aged": 19.8,
+        "pct_older": 21.3,
+        "pct_seniors": 15.6
       }
     },
     {
@@ -257947,7 +258159,9 @@
         "pct_hispanic": 9.7,
         "pct_spanish": 6.2,
         "pct_young": 22.8,
-        "pct_middle_aged": 24.7
+        "pct_middle_aged": 24.7,
+        "pct_older": 17.6,
+        "pct_seniors": 14.2
       }
     },
     {
@@ -261042,7 +261256,9 @@
         "pct_hispanic": 9.2,
         "pct_spanish": 7.2,
         "pct_young": 15.4,
-        "pct_middle_aged": 25.6
+        "pct_middle_aged": 25.6,
+        "pct_older": 20.7,
+        "pct_seniors": 12.5
       }
     },
     {
@@ -265497,7 +265713,9 @@
         "pct_hispanic": 6.6,
         "pct_spanish": 3.6,
         "pct_young": 19.1,
-        "pct_middle_aged": 19.5
+        "pct_middle_aged": 19.5,
+        "pct_older": 19.3,
+        "pct_seniors": 16.4
       }
     },
     {
@@ -267628,7 +267846,9 @@
         "pct_hispanic": 7.0,
         "pct_spanish": 0.9,
         "pct_young": 14.5,
-        "pct_middle_aged": 29.4
+        "pct_middle_aged": 29.4,
+        "pct_older": 17.9,
+        "pct_seniors": 13.2
       }
     },
     {
@@ -271667,7 +271887,9 @@
         "pct_hispanic": 7.0,
         "pct_spanish": 4.1,
         "pct_young": 17.2,
-        "pct_middle_aged": 15.1
+        "pct_middle_aged": 15.1,
+        "pct_older": 21,
+        "pct_seniors": 14.6
       }
     },
     {
@@ -281630,7 +281852,9 @@
         "pct_hispanic": 8.0,
         "pct_spanish": 1.4,
         "pct_young": 6.3,
-        "pct_middle_aged": 28.9
+        "pct_middle_aged": 28.9,
+        "pct_older": 23.9,
+        "pct_seniors": 15.8
       }
     },
     {
@@ -284113,7 +284337,9 @@
         "pct_hispanic": 7.4,
         "pct_spanish": 2.2,
         "pct_young": 26.7,
-        "pct_middle_aged": 15.9
+        "pct_middle_aged": 15.9,
+        "pct_older": 22,
+        "pct_seniors": 16.7
       }
     },
     {
@@ -288344,7 +288570,9 @@
         "pct_hispanic": 6.7,
         "pct_spanish": 3.3,
         "pct_young": 21.4,
-        "pct_middle_aged": 27.4
+        "pct_middle_aged": 27.4,
+        "pct_older": 17.8,
+        "pct_seniors": 13.2
       }
     },
     {
@@ -293795,7 +294023,9 @@
         "pct_hispanic": 6.8,
         "pct_spanish": 4.4,
         "pct_young": 14.6,
-        "pct_middle_aged": 18.4
+        "pct_middle_aged": 18.4,
+        "pct_older": 15.2,
+        "pct_seniors": 15
       }
     },
     {
@@ -294270,7 +294500,9 @@
         "pct_hispanic": 8.4,
         "pct_spanish": 2.5,
         "pct_young": 20.5,
-        "pct_middle_aged": 26.2
+        "pct_middle_aged": 26.2,
+        "pct_older": 21.7,
+        "pct_seniors": 11.6
       }
     },
     {
@@ -298577,7 +298809,9 @@
         "pct_hispanic": 10.9,
         "pct_spanish": 4.8,
         "pct_young": 15.0,
-        "pct_middle_aged": 17.4
+        "pct_middle_aged": 17.4,
+        "pct_older": 15.1,
+        "pct_seniors": 18
       }
     },
     {
@@ -305828,7 +306062,9 @@
         "pct_hispanic": 5.6,
         "pct_spanish": 4.6,
         "pct_young": 13.4,
-        "pct_middle_aged": 15.6
+        "pct_middle_aged": 15.6,
+        "pct_older": 17,
+        "pct_seniors": 15.2
       }
     },
     {
@@ -309855,7 +310091,9 @@
         "pct_hispanic": 9.2,
         "pct_spanish": 0.4,
         "pct_young": 16.8,
-        "pct_middle_aged": 19
+        "pct_middle_aged": 19,
+        "pct_older": 15.2,
+        "pct_seniors": 13
       }
     },
     {
@@ -311314,7 +311552,9 @@
         "pct_hispanic": 27.7,
         "pct_spanish": 25.7,
         "pct_young": 26.0,
-        "pct_middle_aged": 23.8
+        "pct_middle_aged": 23.8,
+        "pct_older": 21.5,
+        "pct_seniors": 13.6
       }
     },
     {
@@ -312245,7 +312485,9 @@
         "pct_hispanic": 16.4,
         "pct_spanish": 10.4,
         "pct_young": 21.0,
-        "pct_middle_aged": 25.6
+        "pct_middle_aged": 25.6,
+        "pct_older": 24.7,
+        "pct_seniors": 15.9
       }
     },
     {
@@ -314124,7 +314366,9 @@
         "pct_hispanic": 11.3,
         "pct_spanish": 1.8,
         "pct_young": 14.9,
-        "pct_middle_aged": 20.1
+        "pct_middle_aged": 20.1,
+        "pct_older": 22.3,
+        "pct_seniors": 13.7
       }
     },
     {
@@ -314927,7 +315171,9 @@
         "pct_hispanic": 14.9,
         "pct_spanish": 6.5,
         "pct_young": 16.5,
-        "pct_middle_aged": 25
+        "pct_middle_aged": 25,
+        "pct_older": 22.6,
+        "pct_seniors": 12.7
       }
     },
     {
@@ -315978,7 +316224,9 @@
         "pct_hispanic": 7.1,
         "pct_spanish": 3.1,
         "pct_young": 16.7,
-        "pct_middle_aged": 23.4
+        "pct_middle_aged": 23.4,
+        "pct_older": 20.5,
+        "pct_seniors": 13.5
       }
     },
     {
@@ -318285,7 +318533,9 @@
         "pct_hispanic": 18.0,
         "pct_spanish": 11.2,
         "pct_young": 20.6,
-        "pct_middle_aged": 22.8
+        "pct_middle_aged": 22.8,
+        "pct_older": 20.5,
+        "pct_seniors": 13.5
       }
     },
     {
@@ -319200,7 +319450,9 @@
         "pct_hispanic": 24.0,
         "pct_spanish": 14.1,
         "pct_young": 17.7,
-        "pct_middle_aged": 29.4
+        "pct_middle_aged": 29.4,
+        "pct_older": 15.9,
+        "pct_seniors": 14
       }
     },
     {
@@ -320255,7 +320507,9 @@
         "pct_hispanic": 19.4,
         "pct_spanish": 14.0,
         "pct_young": 21.4,
-        "pct_middle_aged": 18.9
+        "pct_middle_aged": 18.9,
+        "pct_older": 23.2,
+        "pct_seniors": 13.8
       }
     },
     {
@@ -321342,7 +321596,9 @@
         "pct_hispanic": 2.7,
         "pct_spanish": 2.0,
         "pct_young": 13.1,
-        "pct_middle_aged": 27.1
+        "pct_middle_aged": 27.1,
+        "pct_older": 17.8,
+        "pct_seniors": 13.2
       }
     },
     {
@@ -322221,7 +322477,9 @@
         "pct_hispanic": 18.3,
         "pct_spanish": 10.8,
         "pct_young": 24.2,
-        "pct_middle_aged": 15.1
+        "pct_middle_aged": 15.1,
+        "pct_older": 21,
+        "pct_seniors": 14.6
       }
     },
     {
@@ -322876,7 +323134,9 @@
         "pct_hispanic": 20.5,
         "pct_spanish": 10.6,
         "pct_young": 24.7,
-        "pct_middle_aged": 18.6
+        "pct_middle_aged": 18.6,
+        "pct_older": 15.2,
+        "pct_seniors": 15
       }
     },
     {
@@ -323635,7 +323895,9 @@
         "pct_hispanic": 8.9,
         "pct_spanish": 5.5,
         "pct_young": 23.4,
-        "pct_middle_aged": 16
+        "pct_middle_aged": 16,
+        "pct_older": 24,
+        "pct_seniors": 12.9
       }
     },
     {
@@ -324466,7 +324728,9 @@
         "pct_hispanic": 26.9,
         "pct_spanish": 22.9,
         "pct_young": 42.0,
-        "pct_middle_aged": 26.2
+        "pct_middle_aged": 26.2,
+        "pct_older": 22.7,
+        "pct_seniors": 13.7
       }
     },
     {
@@ -324913,7 +325177,9 @@
         "pct_hispanic": 31.6,
         "pct_spanish": 30.4,
         "pct_young": 34.2,
-        "pct_middle_aged": 26.2
+        "pct_middle_aged": 26.2,
+        "pct_older": 24.7,
+        "pct_seniors": 13.9
       }
     },
     {
@@ -325676,7 +325942,9 @@
         "pct_hispanic": 12.7,
         "pct_spanish": 10.3,
         "pct_young": 17.7,
-        "pct_middle_aged": 28.9
+        "pct_middle_aged": 28.9,
+        "pct_older": 18.9,
+        "pct_seniors": 14.3
       }
     },
     {
@@ -327039,7 +327307,9 @@
         "pct_hispanic": 10.3,
         "pct_spanish": 4.9,
         "pct_young": 13.5,
-        "pct_middle_aged": 28.5
+        "pct_middle_aged": 28.5,
+        "pct_older": 15.9,
+        "pct_seniors": 15
       }
     },
     {
@@ -327766,7 +328036,9 @@
         "pct_hispanic": 17.2,
         "pct_spanish": 12.5,
         "pct_young": 28.2,
-        "pct_middle_aged": 24.6
+        "pct_middle_aged": 24.6,
+        "pct_older": 16.6,
+        "pct_seniors": 13.1
       }
     },
     {
@@ -329437,7 +329709,9 @@
         "pct_hispanic": 4.7,
         "pct_spanish": 4.6,
         "pct_young": 18.5,
-        "pct_middle_aged": 22.8
+        "pct_middle_aged": 22.8,
+        "pct_older": 15.5,
+        "pct_seniors": 14
       }
     },
     {
@@ -330964,7 +331238,9 @@
         "pct_hispanic": 8.9,
         "pct_spanish": 6.1,
         "pct_young": 14.3,
-        "pct_middle_aged": 19.5
+        "pct_middle_aged": 19.5,
+        "pct_older": 22.3,
+        "pct_seniors": 14.7
       }
     },
     {
@@ -331511,7 +331787,9 @@
         "pct_hispanic": 14.6,
         "pct_spanish": 8.0,
         "pct_young": 25.2,
-        "pct_middle_aged": 20.4
+        "pct_middle_aged": 20.4,
+        "pct_older": 24.3,
+        "pct_seniors": 12.9
       }
     },
     {
@@ -334950,7 +335228,9 @@
         "pct_hispanic": 32.2,
         "pct_spanish": 29.1,
         "pct_young": 17.6,
-        "pct_middle_aged": 22.2
+        "pct_middle_aged": 22.2,
+        "pct_older": 15.4,
+        "pct_seniors": 14
       }
     },
     {
@@ -335405,7 +335685,9 @@
         "pct_hispanic": 8.7,
         "pct_spanish": 5.6,
         "pct_young": 17.2,
-        "pct_middle_aged": 24.7
+        "pct_middle_aged": 24.7,
+        "pct_older": 24.6,
+        "pct_seniors": 15.9
       }
     },
     {
@@ -335944,7 +336226,9 @@
         "pct_hispanic": 7.0,
         "pct_spanish": 3.6,
         "pct_young": 18.4,
-        "pct_middle_aged": 16.8
+        "pct_middle_aged": 16.8,
+        "pct_older": 20.1,
+        "pct_seniors": 11.5
       }
     },
     {
@@ -336795,7 +337079,9 @@
         "pct_hispanic": 4.0,
         "pct_spanish": 1.9,
         "pct_young": 11.4,
-        "pct_middle_aged": 26.7
+        "pct_middle_aged": 26.7,
+        "pct_older": 23.7,
+        "pct_seniors": 14.8
       }
     },
     {
@@ -340714,7 +341000,9 @@
         "pct_hispanic": 4.6,
         "pct_spanish": 2.3,
         "pct_young": 17.6,
-        "pct_middle_aged": 29.5
+        "pct_middle_aged": 29.5,
+        "pct_older": 21.9,
+        "pct_seniors": 16.6
       }
     },
     {
@@ -342781,7 +343069,9 @@
         "pct_hispanic": 13.2,
         "pct_spanish": 7.8,
         "pct_young": 10.3,
-        "pct_middle_aged": 22.3
+        "pct_middle_aged": 22.3,
+        "pct_older": 15.4,
+        "pct_seniors": 17
       }
     },
     {
@@ -343560,7 +343850,9 @@
         "pct_hispanic": 6.0,
         "pct_spanish": 3.9,
         "pct_young": 17.2,
-        "pct_middle_aged": 18.7
+        "pct_middle_aged": 18.7,
+        "pct_older": 24.2,
+        "pct_seniors": 12.9
       }
     },
     {
@@ -345175,7 +345467,9 @@
         "pct_hispanic": 13.6,
         "pct_spanish": 20.5,
         "pct_young": 19.4,
-        "pct_middle_aged": 19.2
+        "pct_middle_aged": 19.2,
+        "pct_older": 21.2,
+        "pct_seniors": 14.6
       }
     },
     {
@@ -349382,7 +349676,9 @@
         "pct_hispanic": 3.8,
         "pct_spanish": 3.7,
         "pct_young": 14.8,
-        "pct_middle_aged": 28.2
+        "pct_middle_aged": 28.2,
+        "pct_older": 17.8,
+        "pct_seniors": 13.2
       }
     },
     {
@@ -350113,7 +350409,9 @@
         "pct_hispanic": 9.9,
         "pct_spanish": 4.0,
         "pct_young": 25.7,
-        "pct_middle_aged": 26.7
+        "pct_middle_aged": 26.7,
+        "pct_older": 21.7,
+        "pct_seniors": 12.6
       }
     },
     {
@@ -354252,7 +354550,9 @@
         "pct_hispanic": 5.3,
         "pct_spanish": 3.2,
         "pct_young": 14.0,
-        "pct_middle_aged": 26.8
+        "pct_middle_aged": 26.8,
+        "pct_older": 21.7,
+        "pct_seniors": 14.6
       }
     },
     {
@@ -356891,7 +357191,9 @@
         "pct_hispanic": 27.0,
         "pct_spanish": 18.5,
         "pct_young": 28.1,
-        "pct_middle_aged": 16.2
+        "pct_middle_aged": 16.2,
+        "pct_older": 21,
+        "pct_seniors": 15.6
       }
     },
     {
@@ -359930,7 +360232,9 @@
         "pct_hispanic": 24.0,
         "pct_spanish": 16.6,
         "pct_young": 21.6,
-        "pct_middle_aged": 19.8
+        "pct_middle_aged": 19.8,
+        "pct_older": 20.3,
+        "pct_seniors": 14.5
       }
     },
     {
@@ -363113,7 +363417,9 @@
         "pct_hispanic": 13.2,
         "pct_spanish": 5.8,
         "pct_young": 16.3,
-        "pct_middle_aged": 21.7
+        "pct_middle_aged": 21.7,
+        "pct_older": 22.4,
+        "pct_seniors": 15.7
       }
     },
     {
@@ -365544,7 +365850,9 @@
         "pct_hispanic": 5.5,
         "pct_spanish": 4.2,
         "pct_young": 13.3,
-        "pct_middle_aged": 19
+        "pct_middle_aged": 19,
+        "pct_older": 19.2,
+        "pct_seniors": 15.4
       }
     },
     {
@@ -367713,7 +368021,9 @@
         "pct_hispanic": 7.6,
         "pct_spanish": 4.1,
         "pct_young": 12.8,
-        "pct_middle_aged": 28.6
+        "pct_middle_aged": 28.6,
+        "pct_older": 21.9,
+        "pct_seniors": 16.6
       }
     },
     {
@@ -372394,7 +372704,9 @@
         "pct_hispanic": 11.2,
         "pct_spanish": 7.5,
         "pct_young": 23.9,
-        "pct_middle_aged": 24.9
+        "pct_middle_aged": 24.9,
+        "pct_older": 17.6,
+        "pct_seniors": 13.2
       }
     },
     {
@@ -374317,7 +374629,9 @@
         "pct_hispanic": 6.0,
         "pct_spanish": 4.0,
         "pct_young": 17.6,
-        "pct_middle_aged": 17.5
+        "pct_middle_aged": 17.5,
+        "pct_older": 19.1,
+        "pct_seniors": 17.4
       }
     },
     {
@@ -374644,7 +374958,9 @@
         "pct_hispanic": 19.6,
         "pct_spanish": 18.4,
         "pct_young": 21.9,
-        "pct_middle_aged": 20.1
+        "pct_middle_aged": 20.1,
+        "pct_older": 18.3,
+        "pct_seniors": 17.3
       }
     },
     {
@@ -376523,7 +376839,9 @@
         "pct_hispanic": 10.1,
         "pct_spanish": 7.6,
         "pct_young": 22.1,
-        "pct_middle_aged": 28.8
+        "pct_middle_aged": 28.8,
+        "pct_older": 24.9,
+        "pct_seniors": 12.9
       }
     },
     {
@@ -378790,7 +379108,9 @@
         "pct_hispanic": 7.7,
         "pct_spanish": 7.1,
         "pct_young": 21.3,
-        "pct_middle_aged": 20.4
+        "pct_middle_aged": 20.4,
+        "pct_older": 20.3,
+        "pct_seniors": 15.5
       }
     },
     {
@@ -384013,7 +384333,9 @@
         "pct_hispanic": 20.5,
         "pct_spanish": 16.1,
         "pct_young": 21.8,
-        "pct_middle_aged": 26.7
+        "pct_middle_aged": 26.7,
+        "pct_older": 22.7,
+        "pct_seniors": 17.7
       }
     },
     {
@@ -386100,7 +386422,9 @@
         "pct_hispanic": 8.0,
         "pct_spanish": 6.1,
         "pct_young": 17.8,
-        "pct_middle_aged": 28
+        "pct_middle_aged": 28,
+        "pct_older": 21.8,
+        "pct_seniors": 13.6
       }
     },
     {
@@ -386831,7 +387155,9 @@
         "pct_hispanic": 13.6,
         "pct_spanish": 8.5,
         "pct_young": 23.3,
-        "pct_middle_aged": 23.5
+        "pct_middle_aged": 23.5,
+        "pct_older": 22.5,
+        "pct_seniors": 14.7
       }
     },
     {
@@ -388674,7 +389000,9 @@
         "pct_hispanic": 5.5,
         "pct_spanish": 5.3,
         "pct_young": 18.9,
-        "pct_middle_aged": 25.8
+        "pct_middle_aged": 25.8,
+        "pct_older": 19.7,
+        "pct_seniors": 14.4
       }
     },
     {
@@ -391169,7 +391497,9 @@
         "pct_hispanic": 7.2,
         "pct_spanish": 4.7,
         "pct_young": 16.2,
-        "pct_middle_aged": 20.2
+        "pct_middle_aged": 20.2,
+        "pct_older": 17.3,
+        "pct_seniors": 18.2
       }
     },
     {
@@ -401448,7 +401778,9 @@
         "pct_hispanic": 14.7,
         "pct_spanish": 9.9,
         "pct_young": 15.6,
-        "pct_middle_aged": 27
+        "pct_middle_aged": 27,
+        "pct_older": 21.8,
+        "pct_seniors": 12.6
       }
     },
     {
@@ -402819,7 +403151,9 @@
         "pct_hispanic": 6.8,
         "pct_spanish": 2.1,
         "pct_young": 20.7,
-        "pct_middle_aged": 16.5
+        "pct_middle_aged": 16.5,
+        "pct_older": 24.1,
+        "pct_seniors": 14.9
       }
     },
     {
@@ -405902,7 +406236,9 @@
         "pct_hispanic": 10.8,
         "pct_spanish": 1.2,
         "pct_young": 16.5,
-        "pct_middle_aged": 22
+        "pct_middle_aged": 22,
+        "pct_older": 17.4,
+        "pct_seniors": 15.2
       }
     },
     {
@@ -406609,7 +406945,9 @@
         "pct_hispanic": 25.9,
         "pct_spanish": 24.9,
         "pct_young": 25.4,
-        "pct_middle_aged": 21.3
+        "pct_middle_aged": 21.3,
+        "pct_older": 15.4,
+        "pct_seniors": 13
       }
     },
     {
@@ -409824,7 +410162,9 @@
         "pct_hispanic": 51.3,
         "pct_spanish": 50.9,
         "pct_young": 25.7,
-        "pct_middle_aged": 17.7
+        "pct_middle_aged": 17.7,
+        "pct_older": 18.1,
+        "pct_seniors": 17.3
       }
     }
   ]
